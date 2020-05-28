@@ -15,7 +15,7 @@ With regards to trained parameters, posting all of them is impossible due to the
 <li>Repeat-1-Jump, Nt = 4,N_ptt = 196, Non-Diffusive, non-subordinated.</li>
 <li>Repeat-Nt-Jump, Nt = 4,N_ptt = 196, Non-Diffusive, non-subordinated.</li>
 <li>Repeat-1-Jump, Nt = 4, N_ptt = 196, Diffusive (Neumann BCs).</li>
-<li>Repeat-Nt-Jump, Nt = 4, N_ptt = 196, N_ptt = 196, Diffusive  (Neumann BCs).</li>
+<li>Repeat-Nt-Jump, Nt = 4, N_ptt = 196, Diffusive  (Neumann BCs).</li>
 <li>Repeat-1-Jump, Nt = 4, N_ptt = 196, Diffusive  (Periodic).</li>
 <li>Repeat-Nt-Jump, Nt = 4, N_ptt = 196, Diffusive  (Periodic).</li>
 </ol>
