@@ -14,8 +14,14 @@ The following traned models are also available
 
 
 
+
+
 Rafael Monteiro
+
 Mathematics for Advanced Materials - Open Innovation Laboratory, Japan
+
 PhD Applied Mathematics
+
 https://sites.google.com/view/rafaelmonteiro-math/home
+
 email: rafael.a.monteiro.math@gmail.com, or monteirodasilva-rafael@aist.go.jp
