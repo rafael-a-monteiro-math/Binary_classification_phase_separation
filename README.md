@@ -1,16 +1,24 @@
-### Binary classification as a phase separation process
-Python code for the paper 'Binary classification as a phase separation process', by Rafael Monteiro.
+# Binary classification as a phase separation process
+Python code for the paper <b>Binary classification as a phase separation process</b>, by <b> <a href=https://sites.google.com/view/rafaelmonteiro-math/home>Rafael Monteiro </a></b>.
 
-In this github you will find some examples, and the code for used in the paper. 
+In this github you will the code for used in the paper and some examples of how to use/apply the model.
 
-The following traned models are also available
+### Verifiability:
+Posting all the trained models is impossible due to their size (almost 5gb). Therefore I'm making only the following trained models available:
 
-1. Repeat-Nt-Jump, Nt = 4, Non-Diffusive, subordinated
-2. Repeat-Nt-Jump, Nt = 4, Non-Diffusive, non-subordinated
-3. Repeat-1-Jump, Nt = 4, Diffusive (Neumann BCs)
-4. Repeat-Nt-Jump, Nt = 4, Diffusive  (Neumann BCs)
-5. Repeat-1-Jump, Nt = 4, Diffusive  (Periodic)
-6. Repeat-Nt-Jump, Nt = 4, Diffusive  (Periodic)
+a. Repeat-Nt-Jump, Nt = 4, Non-Diffusive, subordinated
+b. Repeat-Nt-Jump, Nt = 4, Non-Diffusive, non-subordinated
+c. Repeat-1-Jump, Nt = 4, Diffusive (Neumann BCs)
+d. Repeat-Nt-Jump, Nt = 4, Diffusive  (Neumann BCs)
+e. Repeat-1-Jump, Nt = 4, Diffusive  (Periodic)
+f. Repeat-Nt-Jump, Nt = 4, Diffusive  (Periodic)
+
+I'm glad to send them over for anyone who needs them while I cannot find a storage. Nevertheless, as soon as I find a storage to them I'll post the link here.
+
+### Remarks:
+All of them have been trained on clusters with 12 or 22 processors.
+
+As I have proved in the paper, it is possible to parallelize the inviscid model, but it has not been implemented; you are welcome to do that if you want. 
 
 
 
