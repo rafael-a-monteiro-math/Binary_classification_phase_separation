@@ -1,8 +1,6 @@
 # Binary_phase_separation
 Python code for the paper 'Binary classification as a phase separation process', by Rafael Monteiro.
 
-Author's email: rafael.a.monteiro.math@gmail.com, or monteirodasilva-rafael@aist.go.jp
-
 In this github you will find some examples, and the code for used in the paper. 
 
 The following traned models are also available
@@ -20,3 +18,4 @@ Rafael Monteiro
 Mathematics for Advanced Materials - Open Innovation Laboratory, Japan
 PhD Applied Mathematics
 https://sites.google.com/view/rafaelmonteiro-math/home
+email: rafael.a.monteiro.math@gmail.com, or monteirodasilva-rafael@aist.go.jp
