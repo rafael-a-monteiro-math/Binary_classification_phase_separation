@@ -1,28 +1,24 @@
 # Binary Classification as a Phase Separation Process
-Python code for the paper <b>Binary Classification as a Phase Separation Process</b>, by <b> <a href=https://sites.google.com/view/rafaelmonteiro-math/home>Rafael Monteiro </a></b>.
+This is a Github with python code used in the paper 
 
-In this github you will the code for used in the paper and some examples of how to use/apply the model.
+<b>Binary Classification as a Phase Separation Process</b>, by <b> <a href=https://sites.google.com/view/rafaelmonteiro-math/home>Rafael Monteiro </a></b>.
+
+In the main page you will also find  some examples of how to use/apply the model.
 
 ### Available Data and verifiability:
 The dataset used in the paper is public: it is known as the <a href=http://yann.lecun.com/exdb/mnist/> MNIST database </a>.
 
-With regards to trained parameters, posting all of them is impossible due to their size (almost 5gb). Therefore I'm making only the following trained models available:
+Raw data and Computational statistics  are available at <li>10.5281/zenodo.4005131</li>
 
-
-<ol>
-  <li>Repeat-1-Jump, Nt = 4, N_ptt = 196, Non-Diffusive, subordinated.</li>
-  <li>Repeat-Nt-Jump, Nt = 4, N_ptt = 196, Non-Diffusive, subordinated.</li>
-<li>Repeat-1-Jump, Nt = 4,N_ptt = 196, Non-Diffusive, non-subordinated.</li>
-<li>Repeat-Nt-Jump, Nt = 4,N_ptt = 196, Non-Diffusive, non-subordinated.</li>
-<li>Repeat-1-Jump, Nt = 4, N_ptt = 196, Diffusive (Neumann BCs).</li>
-<li>Repeat-Nt-Jump, Nt = 4, N_ptt = 196, Diffusive  (Neumann BCs).</li>
-<li>Repeat-1-Jump, Nt = 4, N_ptt = 196, Diffusive  (Periodic).</li>
-<li>Repeat-Nt-Jump, Nt = 4, N_ptt = 196, Diffusive  (Periodic).</li>
-</ol>
-I'm glad to send them over for anyone who needs them while I cannot find a storage. Nevertheless, as soon as I find a storage to them I'll post the link here.
+I included a script in this github that you can use to download all the data automatically: it gives you three options:
+  1. download all statistics;
+  2. download all examples;
+  3. download all jupyter notebooks;
+  4. download all raw data;
+  
 
 ### Remarks:
-All of them have been trained on clusters with 12 or 22 processors.
+All of them have been trained on a super computer with 12 or 22 processors.
 
 As I have proved in the paper, it is possible to parallelize the inviscid model, but it has not been implemented; you are welcome to do that if you want. 
 
