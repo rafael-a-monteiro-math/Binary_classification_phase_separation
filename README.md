@@ -24,6 +24,22 @@ As I have proved in the paper, it is possible to parallelize the inviscid model,
 
 
 
+### Dependencies:
+Main modules and versions are, respectively:
+
+  1. python_version 3.7.0
+  2. sklearn 0.22.2.post1
+  3. matplotlib 3.2.1
+  4. numpy 1.18.1
+  5. scipy 1.3.0
+  6. sympy 1.3
+  7. pandas 1.0.1
+  8. keras 2.3.1
+  9. tensorflow 1.14.0
+  10. shutil 1.14.0
+  11. copy 1.14.0
+  12. pickle 4.0
+  
 
 <br>
 --------------------------------------------------
