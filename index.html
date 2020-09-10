@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Binary classification as a phase separation process</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Binary classification as a phase separation process" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Binary classification as a phase separation process" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2020-09-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="a-few-examples.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Binary classification as a phase separation process</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="a-few-examples.html"><a href="a-few-examples.html"><i class="fa fa-check"></i><b>2</b> Nonlinear diffusion equations: a numerical example</a><ul>
+<li class="chapter" data-level="2.1" data-path="a-few-examples.html"><a href="a-few-examples.html#nonlinear-diffusion-equations-some-illustrative-examples"><i class="fa fa-check"></i><b>2.1</b> Nonlinear diffusion equations: some illustrative examples</a></li>
+<li class="chapter" data-level="2.2" data-path="a-few-examples.html"><a href="a-few-examples.html#propagation-with-randomly-generated-coefficients"><i class="fa fa-check"></i><b>2.2</b> Propagation with randomly generated coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="applying-the-psbc-model-to-some-toy-problems.html"><a href="applying-the-psbc-model-to-some-toy-problems.html"><i class="fa fa-check"></i><b>3</b> Applying the PSBC model to some toy problems</a><ul>
+<li class="chapter" data-level="3.1" data-path="applying-the-psbc-model-to-some-toy-problems.html"><a href="applying-the-psbc-model-to-some-toy-problems.html#the-1d-rectangular-box-problem"><i class="fa fa-check"></i><b>3.1</b> The 1D Rectangular box problem</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-mnist-database.html"><a href="the-mnist-database.html"><i class="fa fa-check"></i><b>4</b> The MNIST database</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-mnist-database.html"><a href="the-mnist-database.html#retrieving-some-statistics"><i class="fa fa-check"></i><b>4.1</b> Retrieving some statistics</a></li>
+<li class="chapter" data-level="4.2" data-path="the-mnist-database.html"><a href="the-mnist-database.html#a-homemade-example-hadwritten-0-and-1"><i class="fa fa-check"></i><b>4.2</b> A homemade example: hadwritten 0 and 1</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><a href="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><i class="fa fa-check"></i><b>5</b> The Phase Separation Binary Classifier: where to read more about it</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://sites.google.com/view/rafaelmonteiro-math/home" target="blank">Rafael Monteiro's website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Binary classification as a phase separation process</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Binary classification as a phase separation process</h1>
+<p class="author"><em>Rafael Monteiro</em></p>
+<address class="author_afil">
+Mathematics for Advanced Materials - Open Innovation Laboratory/Tohoku University (AIST), Sendai, Japan<br><a class="author_email" href="mailto:#"><a href="mailto:monteirodasilva-rafael@aist.jp" class="email">monteirodasilva-rafael@aist.jp</a>, <a href="mailto:rafael.a.monteiro.math@gmail.com" class="email">rafael.a.monteiro.math@gmail.com</a></a>
+</address>
+<p class="date"><em>2020-09-10</em></p>
+</div>
+<div id="intro" class="section level1">
+<h1><span class="header-section-number"> 1</span> Introduction</h1>
+<p>This is a short companion website to the article <strong>Binary Classification as a Phase Separation Process</strong>,
+by <a href="https://sites.google.com/view/rafaelmonteiro-math/home">Rafael Monteiro</a>. A <a href="https://arxiv.org/abs/2009.02467">preprint</a> is available on arXiv.</p>
+<p><strong>…but, before we start…</strong></p>
+<ul>
+<li><p>The main module for this project is <strong>binary_phase_separation.py</strong>, that you will find in this Github page <span class="citation">(Monteiro <a href="#ref-Bin_phase_data" role="doc-biblioref">2020</a><a href="#ref-Bin_phase_data" role="doc-biblioref">a</a>)</span>.</p></li>
+<li><p>If you are looking for the dataset and trained models, see the <a href="https://doi.org/10.5281/zenodo.4005131"> data repository</a> at Zenodo.</p></li>
+<li><p>If you want to reproduce this notebook you should download the file <a href="https://zenodo.org/record/4005131/files/PSBC_Examples.tar.gz?download=1">PSBC_Examples.tar.gz</a> in the aforementioned data repository, and also this tarball in the Github page <span class="citation">(Monteiro <a href="#ref-Bin_phase_github" role="doc-biblioref">2020</a><a href="#ref-Bin_phase_github" role="doc-biblioref">b</a>)</span>for this project.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p></li>
+<li><p>To download data, I highly recommend the use of the script <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/download_PSBC.sh">download_PSBC.sh</a>, for a few reasons: it downloads the data in a safe way (using <a href="https://www.gnu.org/software/wget/">wget</a>), and it automatically checks the MD5SUM of each file. We would like to highlight that you can also use this script to download only the <a href="https://zenodo.org/record/4005131/files/PSBC_Examples.tar.gz?download=1">trained examples</a> and only the <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/PSBC_Notebooks.tar.gz">jupyter-notebooks</a> for this project.</p></li>
+<li><p>If you want to use the script <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/download_PSBC.sh">download_PSBC.sh</a> to download the dataset, please read first <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/README.pdf">this README.pdf</a> guide for further explanation (pages 3 and 4).</p></li>
+<li><p>This website is based on <a href="Notebook_PSBC_example.ipynb">this jupyter-notebook</a>. The full code to the pictures seen here are posted there. For that reason, I shall refrain from posting the whole oputput of some cases, marking then with a symbol <span class="math inline">\(&gt;&gt;&gt;\)</span>.</p></li>
+<li><p>We will summarize some of the outputs, adding a “…” to them. If you would like to see the whole output, please see <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/Notebook_PSBC_examples.ipynb">Notebook_PSBC_example.ipynb</a>.</p></li>
+</ul>
+<p>As I said, this discussion is short, so we will point out references along the way.</p>
+<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
+<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
+<!-- [@xie2015]. -->
+
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Bin_phase_data">
+<p>Monteiro, Rafael. 2020a. “Data Repository for the Paper ‘Binary Classification as a Phase Separation Process’.” <em>Zenodo Repository</em>. <a href="https://dx.doi.org/10.5281/zenodo.4005131">https://dx.doi.org/10.5281/zenodo.4005131</a>; Zenodo. <a href="https://doi.org/10.5281/zenodo.4005131">https://doi.org/10.5281/zenodo.4005131</a>.</p>
+</div>
+<div id="ref-Bin_phase_github">
+<p>Monteiro, Rafael. 2020b. “Source Code for the Paper ‘Binary Classification as a Phase Separation Process’.” <em>GitHub Repository</em>. <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation">https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation</a>; GitHub.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>This tarball contains all the 3 notebooks, and also the two modules used.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="a-few-examples.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Website.pdf", "Website.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 5 The Phase Separation Binary Classifier: where to read more about it | Binary classification as a phase separation process</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 5 The Phase Separation Binary Classifier: where to read more about it | Binary classification as a phase separation process" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 5 The Phase Separation Binary Classifier: where to read more about it | Binary classification as a phase separation process" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2020-09-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="the-mnist-database.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Binary classification as a phase separation process</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="a-few-examples.html"><a href="a-few-examples.html"><i class="fa fa-check"></i><b>2</b> Nonlinear diffusion equations: a numerical example</a><ul>
+<li class="chapter" data-level="2.1" data-path="a-few-examples.html"><a href="a-few-examples.html#nonlinear-diffusion-equations-some-illustrative-examples"><i class="fa fa-check"></i><b>2.1</b> Nonlinear diffusion equations: some illustrative examples</a></li>
+<li class="chapter" data-level="2.2" data-path="a-few-examples.html"><a href="a-few-examples.html#propagation-with-randomly-generated-coefficients"><i class="fa fa-check"></i><b>2.2</b> Propagation with randomly generated coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="applying-the-psbc-model-to-some-toy-problems.html"><a href="applying-the-psbc-model-to-some-toy-problems.html"><i class="fa fa-check"></i><b>3</b> Applying the PSBC model to some toy problems</a><ul>
+<li class="chapter" data-level="3.1" data-path="applying-the-psbc-model-to-some-toy-problems.html"><a href="applying-the-psbc-model-to-some-toy-problems.html#the-1d-rectangular-box-problem"><i class="fa fa-check"></i><b>3.1</b> The 1D Rectangular box problem</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-mnist-database.html"><a href="the-mnist-database.html"><i class="fa fa-check"></i><b>4</b> The MNIST database</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-mnist-database.html"><a href="the-mnist-database.html#retrieving-some-statistics"><i class="fa fa-check"></i><b>4.1</b> Retrieving some statistics</a></li>
+<li class="chapter" data-level="4.2" data-path="the-mnist-database.html"><a href="the-mnist-database.html#a-homemade-example-hadwritten-0-and-1"><i class="fa fa-check"></i><b>4.2</b> A homemade example: hadwritten 0 and 1</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><a href="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><i class="fa fa-check"></i><b>5</b> The Phase Separation Binary Classifier: where to read more about it</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://sites.google.com/view/rafaelmonteiro-math/home" target="blank">Rafael Monteiro's website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Binary classification as a phase separation process</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-phase-separation-binary-classifier-where-to-read-more-about-it" class="section level1">
+<h1><span class="header-section-number"> 5</span> The Phase Separation Binary Classifier: where to read more about it</h1>
+<p>There are quite a few places that you can read more about the Phase Separation Binary Classifier (PSBC), and also see further examples.</p>
+<ul>
+<li>I have posted a paper with all the mathematics behind the model. It is quite self contained, and you can “ignore” most of the references that I do to other theories (like my comments about maximum principles in parabolic and elliptic PDEs, etc). There is a preprint currently available on arXiv at <a href="https://arxiv.org/abs/2009.02467" class="uri">https://arxiv.org/abs/2009.02467</a></li>
+<li>There are many other examples of use in the jupyter-notebooks (<a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/Notebook_PSBC_1D.ipynb">for 1D toy problem</a>, <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/Notebook_PSBC_MNIST.ipynb">for MNIST</a>)</li>
+<li>If you want to have access to the trainable examples I used, and to the computational statistics, you can either download the files <a href="https://zenodo.org/record/4005131/files/PSBC_Examples.tar.gz?download=1">PSBC_Examples.tar.gz</a> and <a href="https://zenodo.org/record/4005131/files/PSBC_computational_statistics.tar.gz?download=1">PSBC_computational_statistics.tar.gz</a> at the companion <a href="https://doi.org/10.5281/zenodo.4005131"> data repository</a> to this project at Zenodo. There is also this script in this git-hub that you can use to download all you need automatically. You only need wget and tar to use it.</li>
+<li>In this Github you will also find a manual named <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/README.pdf">README.pdf</a> to the data in the repository, and also the script <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/download_PSBC.sh">download_PSBC.sh</a>and use it to download everything you need. There are instructions on how to run the script in the <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/README.pdf">README.pdf</a> file.</li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-mnist-database.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Website.pdf", "Website.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

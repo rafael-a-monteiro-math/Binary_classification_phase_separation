@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 2 Nonlinear diffusion equations: a numerical example | Binary classification as a phase separation process</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 2 Nonlinear diffusion equations: a numerical example | Binary classification as a phase separation process" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 2 Nonlinear diffusion equations: a numerical example | Binary classification as a phase separation process" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2020-09-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="applying-the-psbc-model-to-some-toy-problems.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Binary classification as a phase separation process</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="a-few-examples.html"><a href="a-few-examples.html"><i class="fa fa-check"></i><b>2</b> Nonlinear diffusion equations: a numerical example</a><ul>
+<li class="chapter" data-level="2.1" data-path="a-few-examples.html"><a href="a-few-examples.html#nonlinear-diffusion-equations-some-illustrative-examples"><i class="fa fa-check"></i><b>2.1</b> Nonlinear diffusion equations: some illustrative examples</a></li>
+<li class="chapter" data-level="2.2" data-path="a-few-examples.html"><a href="a-few-examples.html#propagation-with-randomly-generated-coefficients"><i class="fa fa-check"></i><b>2.2</b> Propagation with randomly generated coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="applying-the-psbc-model-to-some-toy-problems.html"><a href="applying-the-psbc-model-to-some-toy-problems.html"><i class="fa fa-check"></i><b>3</b> Applying the PSBC model to some toy problems</a><ul>
+<li class="chapter" data-level="3.1" data-path="applying-the-psbc-model-to-some-toy-problems.html"><a href="applying-the-psbc-model-to-some-toy-problems.html#the-1d-rectangular-box-problem"><i class="fa fa-check"></i><b>3.1</b> The 1D Rectangular box problem</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-mnist-database.html"><a href="the-mnist-database.html"><i class="fa fa-check"></i><b>4</b> The MNIST database</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-mnist-database.html"><a href="the-mnist-database.html#retrieving-some-statistics"><i class="fa fa-check"></i><b>4.1</b> Retrieving some statistics</a></li>
+<li class="chapter" data-level="4.2" data-path="the-mnist-database.html"><a href="the-mnist-database.html#a-homemade-example-hadwritten-0-and-1"><i class="fa fa-check"></i><b>4.2</b> A homemade example: hadwritten 0 and 1</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><a href="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><i class="fa fa-check"></i><b>5</b> The Phase Separation Binary Classifier: where to read more about it</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://sites.google.com/view/rafaelmonteiro-math/home" target="blank">Rafael Monteiro's website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Binary classification as a phase separation process</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="a_few_examples" class="section level1">
+<h1><span class="header-section-number"> 2</span> Nonlinear diffusion equations: a numerical example</h1>
+<p>To begin with, I will introduce the model, giving some examples of its use. Let’s first import some libraries</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="a-few-examples.html#cb1-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split, StratifiedKFold</span>
+<span id="cb1-2"><a href="a-few-examples.html#cb1-2"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> MinMaxScaler</span>
+<span id="cb1-3"><a href="a-few-examples.html#cb1-3"></a><span class="im">import</span> matplotlib.gridspec <span class="im">as</span> gridspec</span>
+<span id="cb1-4"><a href="a-few-examples.html#cb1-4"></a>...</span></code></pre></div>
+<div id="nonlinear-diffusion-equations-some-illustrative-examples" class="section level2">
+<h2><span class="header-section-number">2.1</span> Nonlinear diffusion equations: some illustrative examples</h2>
+<p>As discussed in Section 1.1 in the paper, the foundations of the model lie on nonlinear diffusion processes, which we briefly illustrate with an example. The heart of the model is the Allen-Cahn equation <span class="citation">(Fife <a href="#ref-Fife" role="doc-biblioref">1979</a>)</span>,<span class="citation">(Aronson and Weinberger <a href="#ref-Ar_Wein" role="doc-biblioref">1978</a>)</span>,<span class="citation">(Allen and Cahn <a href="#ref-allen1979microscopic" role="doc-biblioref">1979</a>)</span>, a well-known equation in the field of pattern formation. Just to show how the code we have can be used in that case, we will plot the evolution of an initial boundary value problem, with Neumann boundary conditions.</p>
+<p>Let’s see first take a look at the evolution of</p>
+<p><span class="math display" id="eq:1">\[\begin{equation}
+u_0(x) = \frac{1- \sin(\pi(2x - 1))}{2}\tag{2.1}
+\end{equation}\]</span></p>
+<p>as an initial condition to the Allen-Cahn equation</p>
+<p><span class="math display" id="eq:2">\[\begin{equation}
+\partial_tu(x, t) = \varepsilon^2 \partial_x^2u(x, t) + u(x, t)(1 -  u(x, t))(u(x, t) - \alpha(x)).\tag{2.2}
+\end{equation}\]</span></p>
+<p>The parameter <span class="math inline">\(\alpha(\cdot)\)</span> embodies medium heterogeneity. In this case, we choose <span class="math inline">\(\alpha(x) = -2\)</span>, when <span class="math inline">\(x &lt;0.5\)</span>, and <span class="math inline">\(\alpha(x)\)</span> = 2, when <span class="math inline">\(x \geq 0.5\)</span>.</p>
+<p>Parameters to the model are given below:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="a-few-examples.html#cb2-1"></a>N <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb2-2"><a href="a-few-examples.html#cb2-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, N, endpoint <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb2-3"><a href="a-few-examples.html#cb2-3"></a>V_0 <span class="op">=</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span> <span class="op">-</span> <span class="dv">1</span><span class="op">/</span><span class="dv">2</span> <span class="op">*</span> np.reshape(np.sin(np.pi <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> x <span class="op">-</span> <span class="dv">1</span>)) , (<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb2-4"><a href="a-few-examples.html#cb2-4"></a>prop <span class="op">=</span> Propagate()</span>
+<span id="cb2-5"><a href="a-few-examples.html#cb2-5"></a>dt, eps, Nx, Nt <span class="op">=</span> <span class="fl">0.1</span>, <span class="fl">.3</span>,  N, <span class="dv">400</span></span>
+<span id="cb2-6"><a href="a-few-examples.html#cb2-6"></a>dx, ptt_cardnlty, weigths_k_sharing <span class="op">=</span> x[<span class="dv">1</span>]<span class="op">-</span>x[<span class="dv">0</span>], Nx, Nt</span></code></pre></div>
+<p>Then we initialize parameters</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="a-few-examples.html#cb3-1"></a>init <span class="op">=</span> Initialize_parameters()</span>
+<span id="cb3-2"><a href="a-few-examples.html#cb3-2"></a>param <span class="op">=</span> init.dictionary(N, eps, dt, dx, Nt, ptt_cardnlty, weigths_k_sharing)</span></code></pre></div>
+<p>If you read the paper you remember that trainable weights are the coefficients of this PDE. Since the model randomly initialize these coefficients, we will have to readjust them to the value we want. That’s what we do in the next part of the code.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="a-few-examples.html#cb4-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(param[<span class="st">&quot;Nt&quot;</span>]): param[<span class="st">&quot;alpha_x_t&quot;</span>][:,i] <span class="op">=</span> <span class="dv">-2</span> <span class="op">*</span> (x <span class="op">&lt;</span> <span class="fl">.5</span>) <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> (x <span class="op">&gt;=</span> <span class="fl">.5</span>)</span></code></pre></div>
+<p>which we now run, using the numerical scheme (1.7a) in the paper. As poijnted out there, this is the same as doing a forward propagation: that’s why you see the method “prop.forward” in the code below.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="a-few-examples.html#cb5-1"></a>flow, waterfall, time <span class="op">=</span> prop.forward(V_0, param, waterfall_save <span class="op">=</span> <span class="va">True</span> , Flow_save <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb5-2"><a href="a-few-examples.html#cb5-2"></a>time <span class="op">=</span> np.arange(Nt <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb5-3"><a href="a-few-examples.html#cb5-3"></a>X, Y <span class="op">=</span> np.meshgrid(x, time)</span>
+<span id="cb5-4"><a href="a-few-examples.html#cb5-4"></a>flow <span class="op">=</span> np.squeeze(flow, axis <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div>
+<p>When we plot the evolution of <span class="math inline">\(u_0(\cdot)\)</span> through the Allen-Cahn equation as a surface, we get the plot below (code in <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/Notebook_PSBC_examples.ipynb">Notebook_examples.ipynb</a>).</p>
+<center>
+<img src="figures/output_11_0.png" title="fig:" alt="The initial condition u_0(\cdot) shown in Equation (2.1), as it evolves according to the Allen-Cahn equation (2.2)." />
+</center>
+<p>One of the main motivation of this project came after reading the interesting paper <span class="citation">(Angenent, Mallet-Paret, and Peletier <a href="#ref-Ang_Mal" role="doc-biblioref">1987</a>)</span>: roughly speaking, they have shown that several nontrivial layered patterns^{Stationary solutions to equation <a href="a-few-examples.html#eq:2">(2.2)</a> that, roughly speaking, gets “concentrated” around values 0 and 1, displaying layer in between these values.} can be found if <span class="math inline">\(\alpha(\cdot)\)</span> is non-homogeneous in space. There is an extensive discussion about why this is interesting, and we refer the reader to Section 1.1 in the paper.</p>
+<blockquote>
+<p><strong>Remark:</strong> You can read more about pattern formation in the book <span class="citation">(Nishiura <a href="#ref-Nishiura" role="doc-biblioref">2002</a>)</span> (Chapter 4.2 deals with the Allen-Cahn model), and also in the very nice article Arnd Scheel wrote to the Princeton Companion to Applied Mathematics, Section IV. 27 <span class="citation">(Dennis et al. <a href="#ref-Arnd_companion" role="doc-biblioref">2015</a>)</span>.</p>
+</blockquote>
+</div>
+<div id="propagation-with-randomly-generated-coefficients" class="section level2">
+<h2><span class="header-section-number">2.2</span> Propagation with randomly generated coefficients</h2>
+<p>Next, we would like to evolve and plot the evolution of several different initial conditions in the interval [0,1] (code in <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/Notebook_PSBC_examples.ipynb">Notebook_examples.ipynb</a>). The model that we use is, initially, a discretization of <a href="a-few-examples.html#eq:2">(2.2)</a>, with <span class="math inline">\(\varepsilon = 0\)</span>, which then becomes an ODE:</p>
+<p><span class="math display" id="eq:3">\[\begin{equation}
+U^{[n+1]} = U^{[n]} + \Delta_t^{u}f(U^{[n]},\alpha^{[n]}),\tag{2.3}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(f(U^{[n]},\alpha^{[n]}):= U^{[n]}(1 - U^{[n]})(U^{[n]} - \alpha^{[n]} )\)</span>.</p>
+<p>It is good to have in mind that the PDE coefficients will take the role of trainable weights in ML: we will “adjust” the coefficients in <span class="math inline">\(\alpha(\cdot)\)</span> in order to achieve a certain final, end state. There is in fact a clear correspondence between the Initial value problem and forward propagation and, consequently, the stability of <a href="a-few-examples.html#eq:3">(2.3)</a> has to be considered. The discretization it presents is known as (explicit) Euler method, and it is is known to be unstable in many cases. A good part of the paper was devoted to showing that there is some kind of <em>nonlinear stabilization</em> mechanism that prevents solutions from blowing up. This condition, referred in the paper as <em>Invariant Region Enforcing Condition</em>, shows that as long as we have some control on</p>
+<p><span class="math display" id="eq:boundedness">\[\begin{equation}
+\max_{1\leq k \leq \mathrm{N_t}}\max\{1,\vert \alpha^{[k]}\vert\},\tag{2.4}
+\end{equation}\]</span></p>
+<p>we can adjust the parameter <span class="math inline">\(\Delta_t^u\)</span> in a nontrivial way^{Because, of course, <span class="math inline">\(\Delta_t^u =0\)</span> also does the job, but does not deliver what we want.} so that the evolution <span class="math inline">\(U^{[\cdot]}\)</span> does not yield a floating point overflow (in other words, a blow up in <span class="math inline">\(\ell^{\infty}\)</span> norm).</p>
+<p>we set up a little experiment by taking several initial condition on the interval <span class="math inline">\([0,1]\)</span> and evolving them according to <a href="a-few-examples.html#eq:3">(2.3)</a>.</p>
+<p>Parameters are as follows:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="a-few-examples.html#cb6-1"></a>N <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb6-2"><a href="a-few-examples.html#cb6-2"></a>init <span class="op">=</span> Initialize_parameters()</span>
+<span id="cb6-3"><a href="a-few-examples.html#cb6-3"></a>prop <span class="op">=</span> Propagate()</span>
+<span id="cb6-4"><a href="a-few-examples.html#cb6-4"></a>dt_vec <span class="op">=</span> np.array([.<span class="dv">1</span>,.<span class="dv">3</span>,.<span class="dv">57</span>,<span class="fl">1.5</span>,<span class="dv">3</span>,<span class="dv">4</span>])</span>
+<span id="cb6-5"><a href="a-few-examples.html#cb6-5"></a>dt, eps, Nx, Nt, dx <span class="op">=</span> <span class="fl">.1</span>, <span class="dv">0</span>, N, <span class="dv">20</span>, <span class="dv">1</span></span>
+<span id="cb6-6"><a href="a-few-examples.html#cb6-6"></a>ptt_cardnlty, weights_k_sharing <span class="op">=</span> Nx, Nt</span></code></pre></div>
+<p>The model randomly initializes the coefficients as realizations of a Normal random variable with average 0.5 and variance 0.1, therefore, in light of <a href="a-few-examples.html#eq:boundedness">(2.4)</a>, we reset them to gain more control on their boundedness as uniform random variables in the interval [0,1].</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="a-few-examples.html#cb7-1"></a>param <span class="op">=</span> init.dictionary(N, eps, dt, dx, Nt, ptt_cardnlty, weights_k_sharing)</span>
+<span id="cb7-2"><a href="a-few-examples.html#cb7-2"></a></span>
+<span id="cb7-3"><a href="a-few-examples.html#cb7-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(param[<span class="st">&quot;Nt&quot;</span>]): param[<span class="st">&quot;alpha_x_t&quot;</span>][:,i] <span class="op">=</span> np.random.uniform(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb7-4"><a href="a-few-examples.html#cb7-4"></a></span>
+<span id="cb7-5"><a href="a-few-examples.html#cb7-5"></a>n_points <span class="op">=</span> <span class="dv">10</span>    </span>
+<span id="cb7-6"><a href="a-few-examples.html#cb7-6"></a>V_0 <span class="op">=</span> np.reshape(<span class="dv">1</span><span class="op">/</span>n_points <span class="op">*</span> np.arange(<span class="dv">0</span>, n_points <span class="op">+</span> <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">-1</span>))</span>
+<span id="cb7-7"><a href="a-few-examples.html#cb7-7"></a>flow, waterfall, time <span class="op">=</span> prop.forward(V_0, param, waterfall_save <span class="op">=</span> <span class="va">True</span> , Flow_save <span class="op">=</span> <span class="va">True</span>)</span></code></pre></div>
+<p>We plot several of these orbits with different values of <span class="math inline">\(\Delta_t^u\)</span> to illustrate the effectiveness of the <em>Invariant Region Enforcing Condition</em>, which settles a critical threshold for the size of <span class="math inline">\(\Delta_t^u\)</span>, beyond which solutions can blow up. This is discussed at lenght in the <a href="https://arxiv.org/abs/2009.02467">paper</a>.</p>
+<center>
+<img src="figures/output_16_0.png" title="fig:" alt="The evolution of initial conditions in the interval [0,1] through the Allen-Cahn-equation (2.2) with \varepsilon = 0 (that is, an ODE) in 1D, with coefficients given by random coefficients generated as an uniform distribution in the interval [0,1]." />
+</center>
+<p>In short, the reasoning behind the existence of critical values of <span class="math inline">\(\mathrm{\Delta_{t}^u}\)</span> under which the solution is “well behaved” (that is, the solution is always bounded) goes back to the idea of <em>Invariant regions</em>, exploited extensively in PDEs. It has been developed by many (take a look at Chapter 14 in <span class="citation">(Smoller <a href="#ref-Smoller" role="doc-biblioref">1994</a>)</span>) and if you want to see how it applies in the discrete setting, especially in finite-difference schemes for reaction diffusion models, see <span class="citation">(Hoff <a href="#ref-Hoff" role="doc-biblioref">1978</a>)</span> and the Appendix C of the <a href="https://arxiv.org/abs/2009.02467">paper</a>).</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-allen1979microscopic">
+<p>Allen, Samuel M, and John W Cahn. 1979. “A Microscopic Theory for Antiphase Boundary Motion and Its Application to Antiphase Domain Coarsening.” <em>Acta Metallurgica</em> 27 (6): 1085–95.</p>
+</div>
+<div id="ref-Ang_Mal">
+<p>Angenent, S. B., J. Mallet-Paret, and L. A. Peletier. 1987. “Stable Transition Layers in a Semilinear Boundary Value Problem.” <em>J. Differential Equations</em> 67 (2): 212–42. <a href="https://doi.org/10.1016/0022-0396(87)90147-1">https://doi.org/10.1016/0022-0396(87)90147-1</a>.</p>
+</div>
+<div id="ref-Ar_Wein">
+<p>Aronson, D. G., and H. F. Weinberger. 1978. “Multidimensional Nonlinear Diffusion Arising in Population Genetics.” <em>Adv. In Math.</em> 30 (1): 33–76. <a href="https://doi.org/10.1016/0001-8708(78)90130-5">https://doi.org/10.1016/0001-8708(78)90130-5</a>.</p>
+</div>
+<div id="ref-Arnd_companion">
+<p>Dennis, Mark R., Paul Glendinning, Paul A. Martin, Fadil Santosa, and Jared Tanner, eds. 2015. <em>The Princeton Companion to Applied Mathematics</em>. Princeton University Press, Princeton, NJ. <a href="https://doi.org/10.1515/9781400874477">https://doi.org/10.1515/9781400874477</a>.</p>
+</div>
+<div id="ref-Fife">
+<p>Fife, Paul C. 1979. <em>Mathematical Aspects of Reacting and Diffusing Systems</em>. Vol. 28. Lecture Notes in Biomathematics. Springer-Verlag, Berlin-New York.</p>
+</div>
+<div id="ref-Hoff">
+<p>Hoff, David. 1978. “Stability and Convergence of Finite Difference Methods for Systems of Nonlinear Reaction-Diffusion Equations.” <em>SIAM J. Numer. Anal.</em> 15 (6): 1161–77. <a href="https://doi.org/10.1137/0715077">https://doi.org/10.1137/0715077</a>.</p>
+</div>
+<div id="ref-Nishiura">
+<p>Nishiura, Yasumasa. 2002. <em>Far-from-Equilibrium Dynamics</em>. Vol. 209. Translations of Mathematical Monographs. American Mathematical Society, Providence, RI.</p>
+</div>
+<div id="ref-Smoller">
+<p>Smoller, Joel. 1994. <em>Shock Waves and Reaction-Diffusion Equations</em>. Second. Vol. 258. Grundlehren Der Mathematischen Wissenschaften [Fundamental Principles of Mathematical Sciences]. Springer-Verlag, New York. <a href="https://doi.org/10.1007/978-1-4612-0873-0">https://doi.org/10.1007/978-1-4612-0873-0</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="applying-the-psbc-model-to-some-toy-problems.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Website.pdf", "Website.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

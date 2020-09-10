@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 3 Applying the PSBC model to some toy problems | Binary classification as a phase separation process</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 3 Applying the PSBC model to some toy problems | Binary classification as a phase separation process" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 3 Applying the PSBC model to some toy problems | Binary classification as a phase separation process" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2020-09-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="a-few-examples.html"/>
+<link rel="next" href="the-mnist-database.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Binary classification as a phase separation process</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="a-few-examples.html"><a href="a-few-examples.html"><i class="fa fa-check"></i><b>2</b> Nonlinear diffusion equations: a numerical example</a><ul>
+<li class="chapter" data-level="2.1" data-path="a-few-examples.html"><a href="a-few-examples.html#nonlinear-diffusion-equations-some-illustrative-examples"><i class="fa fa-check"></i><b>2.1</b> Nonlinear diffusion equations: some illustrative examples</a></li>
+<li class="chapter" data-level="2.2" data-path="a-few-examples.html"><a href="a-few-examples.html#propagation-with-randomly-generated-coefficients"><i class="fa fa-check"></i><b>2.2</b> Propagation with randomly generated coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="applying-the-psbc-model-to-some-toy-problems.html"><a href="applying-the-psbc-model-to-some-toy-problems.html"><i class="fa fa-check"></i><b>3</b> Applying the PSBC model to some toy problems</a><ul>
+<li class="chapter" data-level="3.1" data-path="applying-the-psbc-model-to-some-toy-problems.html"><a href="applying-the-psbc-model-to-some-toy-problems.html#the-1d-rectangular-box-problem"><i class="fa fa-check"></i><b>3.1</b> The 1D Rectangular box problem</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-mnist-database.html"><a href="the-mnist-database.html"><i class="fa fa-check"></i><b>4</b> The MNIST database</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-mnist-database.html"><a href="the-mnist-database.html#retrieving-some-statistics"><i class="fa fa-check"></i><b>4.1</b> Retrieving some statistics</a></li>
+<li class="chapter" data-level="4.2" data-path="the-mnist-database.html"><a href="the-mnist-database.html#a-homemade-example-hadwritten-0-and-1"><i class="fa fa-check"></i><b>4.2</b> A homemade example: hadwritten 0 and 1</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><a href="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><i class="fa fa-check"></i><b>5</b> The Phase Separation Binary Classifier: where to read more about it</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://sites.google.com/view/rafaelmonteiro-math/home" target="blank">Rafael Monteiro's website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Binary classification as a phase separation process</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="applying-the-psbc-model-to-some-toy-problems" class="section level1">
+<h1><span class="header-section-number"> 3</span> Applying the PSBC model to some toy problems</h1>
+<p>We shall present the model in a simple toy problem, for illustrative purposes. As pointed out in the paper, we have to use a somewhat “bigger”" model, of the form</p>
+<p><span class="math display" id="eq:4">\[\begin{align}
+U^{[n+1]} = U^{[n]} + \Delta_t^{u}f(U^{[n]},\alpha^{[n]}),\\
+P^{[n+1]} = P^{[n]} + \Delta_t^{u}f(P^{[n]},\beta^{[n]}),\tag{3.1}
+\end{align}\]</span></p>
+<p>where <span class="math inline">\(f(u,w):= u(1 - u)(u - w)\)</span>. Now, given a certain cost function that measures accuracy of the model (namely, how well it predicts in some examples) we have to train the model with respect to both variables <span class="math inline">\(\alpha^{[\cdot]}\)</span> and <span class="math inline">\(\beta^{[\cdot]}\)</span>. What we see in <a href="applying-the-psbc-model-to-some-toy-problems.html#eq:4">(3.1)</a> is part of what we call Phase Separation Binary Classifier (PSBC). After many variations over this equation, we shall apply it later on to the MNIST dataset. For now, we shall see how it behaves in the 1D model.</p>
+<div id="the-1d-rectangular-box-problem" class="section level2">
+<h2><span class="header-section-number">3.1</span> The 1D Rectangular box problem</h2>
+<p>We shall work with a simple 1D model (the rectangular box problem), with the following labeling method:</p>
+<p><span class="math display" id="eq:5">\[\begin{equation}
+Y =Y(X) = \left\{\begin{array}{cc} 1, &amp; \text{if}\quad X \geq \gamma; \\ 
+            0, &amp; \text{otherwise}.
+\end{array}\right.\tag{3.2}
+\end{equation}\]</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb1-1"></a>folder <span class="op">=</span> <span class="st">&quot;Statistics/MNIST/&quot;</span></span>
+<span id="cb1-2"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb1-2"></a><span class="cf">with</span> <span class="bu">open</span>(folder <span class="op">+</span> <span class="st">&quot;parameters_MNIST_Neumann.p&quot;</span>, <span class="st">&#39;rb&#39;</span>) <span class="im">as</span> fp: data <span class="op">=</span> pickle.load(fp)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb2-1"></a><span class="co">### GENERATE DATA</span></span>
+<span id="cb2-2"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb2-2"></a>gamma, N_data <span class="op">=</span> <span class="fl">.2</span>, <span class="dv">2000</span></span>
+<span id="cb2-3"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb2-3"></a>X <span class="op">=</span> np.reshape(np.random.uniform(<span class="dv">0</span>, <span class="dv">1</span>, N_data),(<span class="dv">1</span>, <span class="dv">-1</span>))</span>
+<span id="cb2-4"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb2-4"></a>Y <span class="op">=</span> np.array(X <span class="op">&gt;=</span> gamma, np.<span class="bu">int</span>, ndmin <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb2-5"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb2-5"></a></span>
+<span id="cb2-6"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb2-6"></a><span class="co">### SPLIT DATA FOR CROSS VALIDATION</span></span>
+<span id="cb2-7"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb2-7"></a>A, B, C, D <span class="op">=</span> train_test_split(X.T, Y.T, test_size <span class="op">=</span> <span class="fl">0.2</span>)</span>
+<span id="cb2-8"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb2-8"></a><span class="co">#### We shall save one individual per column. We need to change that upon reading the csv later on</span></span>
+<span id="cb2-9"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb2-9"></a>X_train, X_test, Y_train, Y_test <span class="op">=</span> A.T, B.T, C.T, D.T</span></code></pre></div>
+<p>In this model, the data has to satisfy features dimension X number of elements in the sample</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb3-1"></a>np.shape(X_train)</span></code></pre></div>
+<p><span class="math inline">\(&gt;&gt;&gt;\)</span></p>
+<pre><code>  (1, 1600)</code></pre>
+<p>Things go more or less as before: we define the model’s parameters,</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb5-1"></a>learning_rate <span class="op">=</span> (.<span class="dv">1</span>,.<span class="dv">08</span>,.<span class="dv">93</span>)</span>
+<span id="cb5-2"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb5-2"></a>patience <span class="op">=</span> <span class="bu">float</span>(<span class="st">&quot;inf&quot;</span>)</span>
+<span id="cb5-3"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb5-3"></a>sigma <span class="op">=</span> <span class="fl">.1</span></span>
+<span id="cb5-4"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb5-4"></a>drop_SGD <span class="op">=</span> <span class="fl">0.95</span>  <span class="co"># See  docstring of class &quot;Binary_phase_separation&quot; for further information</span></span>
+<span id="cb5-5"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb5-5"></a>epochs, dt, dx, eps, Nx, Nt <span class="op">=</span> <span class="dv">600</span>, <span class="fl">.1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">20</span></span>
+<span id="cb5-6"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb5-6"></a>weights_k_sharing <span class="op">=</span> Nt</span>
+<span id="cb5-7"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb5-7"></a>ptt_cardnlty <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-8"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb5-8"></a>batch_size <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb5-9"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb5-9"></a>subordinate, save_parameter_hist, orthodox_dt, with_phase <span class="op">=</span> <span class="va">True</span>, <span class="va">True</span>, <span class="va">True</span>, <span class="va">True</span></span></code></pre></div>
+<p>and initialize the model</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb6-1"></a>Init <span class="op">=</span> Initialize_parameters()   </span>
+<span id="cb6-2"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb6-2"></a></span>
+<span id="cb6-3"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb6-3"></a>data <span class="op">=</span> Init.dictionary(Nx, eps, dt, dx, Nt, ptt_cardnlty, weights_k_sharing, sigma <span class="op">=</span> sigma )</span>
+<span id="cb6-4"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb6-4"></a>data.update({<span class="st">&#39;learning_rate&#39;</span> :  learning_rate, <span class="st">&#39;epochs&#39;</span> :  epochs,<span class="op">\</span></span>
+<span id="cb6-5"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb6-5"></a>             <span class="st">&#39;subordinate&#39;</span> :  subordinate,<span class="st">&quot;patience&quot;</span> : patience,<span class="op">\</span></span>
+<span id="cb6-6"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb6-6"></a>             <span class="st">&#39;drop_SGD&#39;</span> : drop_SGD,<span class="st">&quot;orthodox_dt&quot;</span> : orthodox_dt,<span class="st">&#39;with_phase&#39;</span> : with_phase,</span>
+<span id="cb6-7"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb6-7"></a>             <span class="st">&quot;batch_size&quot;</span> : batch_size, <span class="st">&quot;save_parameter_hist&quot;</span> : save_parameter_hist })</span></code></pre></div>
+<p>We are finally ready to train the model. We do so using the class Binary_Phase_Separation</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb7-1"></a>Model <span class="op">=</span> Binary_Phase_Separation()</span></code></pre></div>
+<p>Of which you can learn more about by typing</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb8-1"></a><span class="bu">print</span>(Model.__doc__)</span></code></pre></div>
+<p><span class="math inline">\(&gt;&gt;&gt;\)</span></p>
+<pre><code>   This is the main class  of the Phase Separation Binary Classifier (PSBC).
+   With its methods one can, aong other things, train the model and 
+   predict classifications (once the model has been trained).</code></pre>
+<p>If the above is not enough, you can type</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb10-1"></a><span class="bu">print</span>(<span class="bu">help</span>(Model))</span></code></pre></div>
+<p><span class="math inline">\(&gt;&gt;&gt;\)</span></p>
+<pre><code>Help on Binary_Phase_Separation in module binary_phase_separation object:
+
+class Binary_Phase_Separation(builtins.object)
+ |  Binary_Phase_Separation(cost=None, par_U_model=None, par_P_model=None, par_U_wrt_epochs=None, par_P_wrt_epochs=None)
+ |  
+...</code></pre>
+<!--  |  This is the main class  of the Phase Separation Binary Classifier (PSBC). -->
+<!--  |  With its methods one can, aong other things, train the model and  -->
+<!--  |  predict classifications (once the model has been trained). -->
+<!--  |   -->
+<!--  |  Methods defined here: -->
+<!--  |   -->
+<!--  |  __init__(self, cost=None, par_U_model=None, par_P_model=None, par_U_wrt_epochs=None, par_P_wrt_epochs=None) -->
+<!--  |      Class initializer.  -->
+<!--  |       -->
+<!--  |      Parameters -->
+<!--  |      ---------- -->
+<!--  |      cost : {bool, True}, optional -->
+<!--  |      par_U_model : {dictionary, None}, optional -->
+<!--  |          Dictionary containing initialization parameters for the U component -->
+<!--  |          of the PSBC. -->
+<!--  |      par_P_model : {dictionary, None}, optional -->
+<!--  |          Dictionary containing initialization parameters for the P component -->
+<!--  |          of the PSBC. -->
+<!--  |      par_U_wrt_epochs : {dictionary, None}, optional -->
+<!--  |          Dictionary containing dictionaries of U parameters throughout the  -->
+<!--  |          training. -->
+<!--  |      par_P_wrt_epochs : {dictionary, None}, optional -->
+<!--  |          Dictionary containing dictionaries of P parameters throughout the  -->
+<!--  |          training. -->
+<!--  |       -->
+<!--  |      Attributes -->
+<!--  |      ---------- -->
+<!--  |      cost, par_U_model, par_P_model, par_U_wrt_epochs, par_P_wrt_epochs -->
+<!--  |       -->
+<!--  |      Returns -->
+<!--  |      ------- -->
+<!--  |      Class initializer. No returned value.  -->
+<!--  |      Parameters are accessible as instance variables. -->
+<!--  |   -->
+<!--  |  predict(self, X, par_U_model, par_P_model, with_phase=True, subordinate=True) -->
+<!--  |      'predict' method. -->
+<!--  |       -->
+<!--  |      This method predicts the labels of X for a PSBC with parameters given -->
+<!--  |      by par_U_model and par_P_model.  -->
+<!--  |      No accuracy is computed. -->
+<!--  |       -->
+<!--  |      Parameters -->
+<!--  |      ---------- -->
+<!--  |      X : numpy.ndarray of size Nx X N_data -->
+<!--  |          Matrix with features.  -->
+<!--  |      par_U_model : {dictionary, None}, optional -->
+<!--  |          Dictionary containing initialization parameters for the U component -->
+<!--  |          of the PSBC. -->
+<!--  |      par_P_model : {dictionary, None}, optional -->
+<!--  |          Dictionary containing initialization parameters for the P component -->
+<!--  |          of the PSBC. -->
+<!--  |      with_phase : {bool, True}, optional -->
+<!--  |          If True the PSBC uses the phase variable, -->
+<!--  |          otherwise it does not uses it. -->
+<!--  |      subordinate : {bool, True}, optional -->
+<!--  |          If True the PSBC is subordinate, otherwise it is not. -->
+<!--  |       -->
+<!--  |      Returns -->
+<!--  |      ------- -->
+<!--  |      Predicted labels as a vector 'predict_vector'. -->
+<!--  |       -->
+<!--  |      predict_vector : numpy.ndarray, -->
+<!--  |   -->
+<!--  |  predict_and_accuracy(self, X, Y, par_U_model, par_P_model, with_phase=True, subordinate=True) -->
+<!--  |      'predict_and_accuracy' method. -->
+<!--  |       -->
+<!--  |      This method predicts the labels of X for a PSBC with parameters given -->
+<!--  |      by par_U_model and par_P_model. Accuracy is compared to the true labels  -->
+<!--  |      Y. -->
+<!--  |       -->
+<!--  |       Parameters -->
+<!--  |      ---------- -->
+<!--  |      X : numpy.ndarray of size Nx X N_data -->
+<!--  |          Matrix with features.  -->
+<!--  |      Y : numpy.ndarray of size 1 X N_data -->
+<!--  |          Matrix with labels.  -->
+<!--  |      par_U_model : {dictionary, None}, optional -->
+<!--  |          Dictionary containing initialization parameters for the U component -->
+<!--  |          of the PSBC. -->
+<!--  |      par_P_model : {dictionary, None}, optional -->
+<!--  |          Dictionary containing initialization parameters for the P component -->
+<!--  |          of the PSBC. -->
+<!--  |      with_phase : {bool, True}, optional -->
+<!--  |          If True the PSBC uses the phase variable, -->
+<!--  |          otherwise it does not uses it. -->
+<!--  |      subordinate : {bool, True}, optional -->
+<!--  |          If True the PSBC is subordinate, otherwise it is not. -->
+<!--  |       -->
+<!--  |      Returns -->
+<!--  |      ------- -->
+<!--  |      Predicted labels as a vector 'predict_vector', -->
+<!--  |      cost at given parameters as 'cost', -->
+<!--  |      accuracy when compared to labels Y as 'accuracy_now'. -->
+<!--  |       -->
+<!--  |      predict_vector : numpy.ndarray, -->
+<!--  |      cost : float, -->
+<!--  |      accuracy_now : float. -->
+<!--  |   -->
+<!--  |  train(self, X, Y, X_test, Y_test, learning_rate, dt, dx, layers, weights_K_sharing, eps=0, ptt_cardnlty=1, batch_size=None, epochs=30, subordinate=True, with_phase=True, drop_SGD=1, patience=inf, sigma=0.1, orthodox_dt=True, print_every=30, Neumann=True, save_parameter_hist=False) -->
+<!--  |      'train' method. -->
+<!--  |       -->
+<!--  |      This method trains the PSBC model with a given set of parameters and  -->
+<!--  |      data. -->
+<!--  |       -->
+<!--  |      Parameters -->
+<!--  |      ---------- -->
+<!--  |      X : numpy.ndarray of size Nx X N_data -->
+<!--  |          Matrix with features.  -->
+<!--  |      Y : numpy.ndarray of size 1 X N_data -->
+<!--  |          Matrix with labels.  -->
+<!--  |      X_test : numpy.ndarray of size Nx X N_data_test -->
+<!--  |          Matrix with features.  -->
+<!--  |      Y_test : numpy.ndarray of size 1 X N_data_test -->
+<!--  |          Matrix with labels.  -->
+<!--  |      learning_rate : float or tuple -->
+<!--  |          If Tuple with three elements (a,b,c),  -->
+<!--  |          these numbers  parametrize the learning rate decay. -->
+<!--  |      dt : float -->
+<!--  |          Mesh grid size of time discretization  -->
+<!--  |      dx : float -->
+<!--  |          Mesh grid size of spatial discretization.   -->
+<!--  |      layers : int -->
+<!--  |          Number o f layers.  -->
+<!--  |      weights_K_sharing : int -->
+<!--  |          Number of successive layers that are sharing their weights. -->
+<!--  |      eps : {float, 0}, optional -->
+<!--  |          Diffiusion / Viscosity parameter.  -->
+<!--  |      ptt_cardnlty : {int, 1}, optional -->
+<!--  |          Partition cardinality. -->
+<!--  |      batch_size : {int, None}, optional -->
+<!--  |          Size of mini_batches. If None, the method uses full batch size. -->
+<!--  |      epochs : {int, 30}, optional -->
+<!--  |          Number of epochs. -->
+<!--  |      subordinate : {bool, True}, optional -->
+<!--  |          If True the PSBC is subordinate, otherwise it is not. -->
+<!--  |      with_phase : {bool, True}, optional -->
+<!--  |          If True the PSBC uses the phase variable, -->
+<!--  |          otherwise it does not uses it. -->
+<!--  |      drop_SGD : {1, float}, optional -->
+<!--  |          Parameter used to find basin of optimal parameter (stochastically). -->
+<!--  |          If model reaches this accuracy then SGD is dropped and training -->
+<!--  |          switches to full batch size. -->
+<!--  |      patience : {float, float("+inf")}, optional -->
+<!--  |          Parameter used in Early Stopping. -->
+<!--  |      sigma : {float, 0.1}, optional -->
+<!--  |          Standard deviation of the weights upon initialization. Weights are -->
+<!--  |          initialized randomly as Normal(0.5, sigma^2). -->
+<!--  |      orthodox_dt = True : {bool, True}, optional -->
+<!--  |          If True, the Enforced Invariant Region Constrain is applied. -->
+<!--  |          If False, dt is kept constant throughout training. -->
+<!--  |      print_every : {int, 30}, optional -->
+<!--  |          Throughout training some values will be printed every 30 epochs.  -->
+<!--  |      Neumann : {bool, True}, optional -->
+<!--  |          Boundary condition.  If 'Neumann' is True, returns the 1D Laplacian -->
+<!--  |          discretized for Neumann Boundary conditions.  -->
+<!--  |          If 'Neumann' is False, return Periodic Boundary counditions. -->
+<!--  |      save_parameter_hist = False : {bool, True}, optional -->
+<!--  |          Save a dictionary with the model parameters in each epoch.  -->
+<!--  |          WARNING: memory consuming. -->
+<!--  |       -->
+<!--  |      Returns -->
+<!--  |      ------- -->
+<!--  |      No returned value.  -->
+<!--  |      Trainable parameters are accessible as instance variables. -->
+<!--  |   -->
+<!--  |  ---------------------------------------------------------------------- -->
+<!--  |  Data descriptors defined here: -->
+<!--  |   -->
+<!--  |  __dict__ -->
+<!--  |      dictionary for instance variables (if defined) -->
+<!--  |   -->
+<!--  |  __weakref__ -->
+<!--  |      list of weak references to the object (if defined) -->
+<!-- None -->
+<p>But this is maybe too much. So, let’s say that you just want to know about how to train. You can get information only about that method</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb12-1"></a><span class="bu">print</span>(Model.train.__doc__)</span></code></pre></div>
+<p><span class="math inline">\(&gt;&gt;&gt;\)</span></p>
+<pre><code>        &#39;train&#39; method.
+
+        This method trains the PSBC model with a given set of parameters and 
+        data.
+        
+        Parameters
+        ----------
+        X : numpy.ndarray of size Nx X N_data
+            Matrix with features. 
+        ...    </code></pre>
+<!-- Y : numpy.ndarray of size 1 X N_data -->
+<!--     Matrix with labels.  -->
+<!-- X_test : numpy.ndarray of size Nx X N_data_test -->
+<!--     Matrix with features.  -->
+<!-- Y_test : numpy.ndarray of size 1 X N_data_test -->
+<!--     Matrix with labels.  -->
+<!-- learning_rate : float or tuple -->
+<!--     If Tuple with three elements (a,b,c),  -->
+<!--     these numbers  parametrize the learning rate decay. -->
+<!-- dt : float -->
+<!--     Mesh grid size of time discretization  -->
+<!-- dx : float -->
+<!--     Mesh grid size of spatial discretization.   -->
+<!-- layers : int -->
+<!--     Number o f layers.  -->
+<!-- weights_K_sharing : int -->
+<!--     Number of successive layers that are sharing their weights. -->
+<!-- eps : {float, 0}, optional -->
+<!--     Diffiusion / Viscosity parameter.  -->
+<!-- ptt_cardnlty : {int, 1}, optional -->
+<!--     Partition cardinality. -->
+<!-- batch_size : {int, None}, optional -->
+<!--     Size of mini_batches. If None, the method uses full batch size. -->
+<!-- epochs : {int, 30}, optional -->
+<!--     Number of epochs. -->
+<!-- subordinate : {bool, True}, optional -->
+<!--     If True the PSBC is subordinate, otherwise it is not. -->
+<!-- with_phase : {bool, True}, optional -->
+<!--     If True the PSBC uses the phase variable, -->
+<!--     otherwise it does not uses it. -->
+<!-- drop_SGD : {1, float}, optional -->
+<!--     Parameter used to find basin of optimal parameter (stochastically). -->
+<!--     If model reaches this accuracy then SGD is dropped and training -->
+<!--     switches to full batch size. -->
+<!-- patience : {float, float("+inf")}, optional -->
+<!--     Parameter used in Early Stopping. -->
+<!-- sigma : {float, 0.1}, optional -->
+<!--     Standard deviation of the weights upon initialization. Weights are -->
+<!--     initialized randomly as Normal(0.5, sigma^2). -->
+<!-- orthodox_dt = True : {bool, True}, optional -->
+<!--     If True, the Enforced Invariant Region Constrain is applied. -->
+<!--     If False, dt is kept constant throughout training. -->
+<!-- print_every : {int, 30}, optional -->
+<!--     Throughout training some values will be printed every 30 epochs.  -->
+<!-- Neumann : {bool, True}, optional -->
+<!--     Boundary condition.  If 'Neumann' is True, returns the 1D Laplacian -->
+<!--     discretized for Neumann Boundary conditions.  -->
+<!--     If 'Neumann' is False, return Periodic Boundary counditions. -->
+<!-- save_parameter_hist = False : {bool, True}, optional -->
+<!--     Save a dictionary with the model parameters in each epoch.  -->
+<!--     WARNING: memory consuming. -->
+<!-- Returns -->
+<!-- ------- -->
+<!-- No returned value.  -->
+<!-- Trainable parameters are accessible as instance variables.  -->
+<p>The method that we want is train. So, we do</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb14-1"></a>Model.train(</span>
+<span id="cb14-2"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb14-2"></a>    X_train, Y_train, X_train, Y_train, learning_rate, dt, dx, Nt,<span class="op">\</span></span>
+<span id="cb14-3"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb14-3"></a>        weights_k_sharing, eps <span class="op">=</span> eps, epochs <span class="op">=</span> epochs, <span class="op">\</span></span>
+<span id="cb14-4"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb14-4"></a>        subordinate <span class="op">=</span> subordinate, with_phase <span class="op">=</span> with_phase,<span class="op">\</span></span>
+<span id="cb14-5"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb14-5"></a>        drop_SGD <span class="op">=</span> drop_SGD, sigma <span class="op">=</span> sigma,<span class="op">\</span></span>
+<span id="cb14-6"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb14-6"></a>        orthodox_dt <span class="op">=</span> orthodox_dt, print_every <span class="op">=</span> <span class="dv">300</span>,<span class="op">\</span></span>
+<span id="cb14-7"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb14-7"></a>            save_parameter_hist <span class="op">=</span> save_parameter_hist</span>
+<span id="cb14-8"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb14-8"></a>)</span></code></pre></div>
+<p><span class="math inline">\(&gt;&gt;&gt;\)</span></p>
+<pre><code> epoch : 0 cost 0.11494985702898435
+
+ accuracy : 0.70375
+
+ epoch : 300 cost 0.022553932287346947
+
+ accuracy : 0.9775</code></pre>
+<p>If you want to take a look at how the cost function behaves over epochs, you can plot it (see full code in <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/Notebook_PSBC_examples.ipynb">Notebook_examples.ipynb</a>). The output is given below.</p>
+<!-- ```python -->
+<!-- cost_over_epochs = Model.cost -->
+<!-- x = np.arange(len(cost_over_epochs)) -->
+<!-- f, ax = plt.subplots(figsize = (15,5)) -->
+<!-- ax.plot(x, cost_over_epochs, lw = 3) -->
+<!-- ax.set_title("Cost over epochs") -->
+<!-- ax.set_ylabel("Cost") -->
+<!-- ax.set_xlabel("Epochs") -->
+<!-- ax.grid(True) -->
+<!-- plt.show() -->
+<!-- ``` -->
+<center>
+<img src="figures/output_37_0.png" title="fig:" style="width:90.0%" alt="The evolution of the cost over epochs, for the 1D PSBC model with labeling (3.2)." />
+</center>
+<p>And if you want to take a look at the behavior of the set <span class="math inline">\(\mathscr{P}_{\alpha}\)</span> you can also do. Just type</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb16-1"></a>diameter_history <span class="op">=</span> Model.diameters_hist</span></code></pre></div>
+<p>which will give you a dictionary with two keys: “U” and “P”</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb17-1"></a>diameter_history.keys()</span></code></pre></div>
+<p><span class="math inline">\(&gt;&gt;&gt;\)</span></p>
+<pre><code>dict_keys([&#39;P&#39;, &#39;U&#39;])</code></pre>
+<p>They concern the behavior of trainable weights for the U variable, and for the P variable. They can be plotted as</p>
+<!-- ```python -->
+<!-- fig, ax = plt.subplots( nrows = 2, figsize = (15,10)) -->
+<!-- colors = pl.cm.tab20(np.linspace(0,1,11)) -->
+<!-- ax[0].plot( -->
+<!--     diameter_history["U"],   linestyle = '-', lw = 3,\ -->
+<!--     label = None, color = colors[0]  -->
+<!-- ) -->
+<!-- ax[1].plot( -->
+<!--     diameter_history["P"],   linestyle = (0,(3,1,1,1,1,1)), lw = 3,\ -->
+<!--     label = None, color = colors[1] -->
+<!-- ) -->
+<!-- fig.suptitle("Maximum of trainable weights evolution") -->
+<!-- ax[0].legend(loc = 4, fontsize = 16, ncol = 3) -->
+<!-- ax[0].set_ylabel(r"$\mathscr{P}_{\alpha}$") -->
+<!-- ax[0].set_xlabel('Number of iterations') -->
+<!-- ax[0].grid(True) -->
+<!-- ax[1].set_ylabel(r"$\mathscr{P}_{\beta}$") -->
+<!-- ax[1].set_xlabel('Number of iterations') -->
+<!-- ax[1].grid(True) -->
+<!-- plt.show() -->
+<!-- ``` -->
+<center>
+<img src="figures/output_43_1.png" title="fig:" style="width:90.0%" alt="The evolution of the diameters \mathrm{\mathscr{P}_{\alpha}} and \mathrm{\mathscr{P}_{\beta}} over epochs, for the 1D PSBC model with labeling (3.2)." />
+</center>
+<p>This is the typical behavior of these quantities. Note that they remain constant (equal to 1) up to a certain point, and then they grow in a logarithmic shape. Note that the point of departure from the value 1 is different for both variables. That’s because they have a separate dynamics, and are allowed to vary independently.</p>
+<p>We can also check the behavior of accuracy throughout epochs:</p>
+<!-- ```python -->
+<!-- accuracies_fnt = Model.accuracies_hist -->
+<!-- x = np.arange(len(accuracies_fnt)) -->
+<!-- ## Plotting -->
+<!-- f, ax = plt.subplots(figsize = (15,5)) -->
+<!-- ax.plot(x, accuracies_fnt, lw = 3) -->
+<!-- f.suptitle("Accuracy over epochs") -->
+<!-- ax.set_ylabel("Accuracy") -->
+<!-- ax.set_xlabel("Epochs") -->
+<!-- ax.grid(True) -->
+<!-- plt.show() -->
+<!-- ``` -->
+<center>
+<img src="figures/output_45_0.png" title="fig:" style="width:90.0%" alt="The evolution of accuracy over epochs, for the 1D PSBC modelwith labeling (3.2)." />
+</center>
+<p>Note the the model peaks (reaches a point of high accuracy) before the final epoch. This natural “deterioration” is what lead researchers to design <strong>Early Stopping</strong> methods; cf. <span class="citation">(Prechelt <a href="#ref-early_when" role="doc-biblioref">1998</a>)</span>. We can in fact know what that epoch was by typing</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb19-1"></a>Model.best_epoch</span></code></pre></div>
+<p><span class="math inline">\(&gt;&gt;&gt;\)</span> array(181)</p>
+<p>Whose value was</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb20-1"></a>Model.best_accuracy</span></code></pre></div>
+<p><span class="math inline">\(&gt;&gt;&gt;\)</span> array(1.)</p>
+<p>that is, 100% accuracy. If you want to retrieve the model parameters at such an epoch you just need to type</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="applying-the-psbc-model-to-some-toy-problems.html#cb21-1"></a>best_P , best_U <span class="op">=</span> Model.best_par_P_model, Model.best_par_U_model</span></code></pre></div>
+<p>which will give the value of the parameters used when the model achieved its best performance.</p>
+<!-- ```python -->
+<!-- number_tests = Model.par_U_model["epochs"] -->
+<!-- accuracy_train, accuracy_test = [] , [] -->
+<!-- for j in range(number_tests - 1): -->
+<!--     _, aux_train, accuracy_train_now =\ -->
+<!--         Model.predict_and_accuracy( -->
+<!--         X_train,Y_train, Model.par_U_wrt_epochs[str(j)], Model.par_P_wrt_epochs[str(j)],\ -->
+<!--         subordinate = subordinate,with_phase = with_phase) -->
+<!--     _, aux_test, accuracy_test_now =\ -->
+<!--         Model.predict_and_accuracy( -->
+<!--         X_test, Y_test, Model.par_U_wrt_epochs[str(j)], Model.par_P_wrt_epochs[str(j)],\ -->
+<!--         subordinate = subordinate, with_phase = with_phase) -->
+<!--     # Accuracies -->
+<!--     accuracy_train.append(accuracy_train_now) -->
+<!--     accuracy_test.append(accuracy_test_now) -->
+<!-- ``` -->
+<!-- ```python -->
+<!-- x = np.arange(len(accuracy_train)) -->
+<!-- ## Plotting -->
+<!-- f, ax = plt.subplots(figsize = (15,8)) -->
+<!-- plt.plot(x, accuracy_train, lw = 3, label = "Train") -->
+<!-- plt.plot(x, accuracy_test, lw = 3, label = "Test") -->
+<!-- f.suptitle("Accuracy over epochs") -->
+<!-- ax.set_ylabel("Accuracy") -->
+<!-- ax.set_xlabel("Epochs") -->
+<!-- ax.legend(loc = 4) -->
+<!-- ax.grid(True) -->
+<!-- plt.show() -->
+<!-- ``` -->
+<p>For this simple model we did something else: we are saving all the parameters in the model at each epoch.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<center>
+<img src="figures/output_55_0.png" title="fig:" style="width:90.0%" alt="Evolution of accuracy for train and test set over epochs, for the 1D PSBC problem with labeling (3.2)." />
+</center>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-early_when">
+<p>Prechelt, Lutz. 1998. “Early Stopping - but When?” In <em>Neural Networks: Tricks of the Trade</em>, edited by Müller Orr Genevieve B., 55–69. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/3-540-49430-8_3">https://doi.org/10.1007/3-540-49430-8_3</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>It is clear that whenever one deals with big models memory is an impeditive obstruction to reproducing this; in such a case, it is better to set “save_parameter_hist = False” in order to save memory.<a href="applying-the-psbc-model-to-some-toy-problems.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="a-few-examples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-mnist-database.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Website.pdf", "Website.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
