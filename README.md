@@ -8,7 +8,8 @@ In the main page you will also find  some examples of how to use/apply the model
 ### Available Data and verifiability:
 The dataset used in the paper is public: it is known as the <a href=http://yann.lecun.com/exdb/mnist/> MNIST database </a>.
 
-Raw data and Computational statistics  are available at <li>10.5281/zenodo.4005131</li>
+Raw data and Computational statistics  are available at 
+<li><a href=https://zenodo.org/record/4005131#.X1nsuR9fhFQ>10.5281/zenodo.4005131</a></li>
 
 I included a script in this github that you can use to download all the data automatically: it gives you three options:
   1. download all statistics;
