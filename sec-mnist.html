@@ -23,7 +23,7 @@
 
 
 
-<meta name="date" content="2020-09-11" />
+<meta name="date" content="2020-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -222,9 +222,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- plt.imshow(both, cmap = "binary") -->
 <!-- plt.show() -->
 <!-- ``` -->
-<center>
-<img src="figures/output_63_0.png" title="fig:" alt="A subsample of digits “0” and “1” in the MNIST database." />
-</center>
+<div class="figure">
+<img src="figures/output_63_0.png" alt="" />
+<p class="caption">A subsample of digits “0” and “1” in the MNIST database.</p>
+</div>
 <p>One can also visualize the trainable weights as heatmaps (see full code in <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/Notebook_PSBC_examples.ipynb">Notebook_examples.ipynb</a>).</p>
 <!-- ```python -->
 <!-- parent_folder = "Examples/" -->
@@ -285,9 +286,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- ax[1,0].set_ylabel(r"$W_U^{[\cdot]} = \alpha^{[\cdot]}$", rotation = 90, size = 18) -->
 <!-- plt.show() -->
 <!-- ``` -->
-<center>
-<img src="figures/output_67_0.png" title="fig:" alt="Heatmaps of trainable weights for some trained PSBC models in the Examples folder." />
-</center>
+<div class="figure">
+<img src="figures/output_67_0.png" alt="" />
+<p class="caption">Heatmaps of trainable weights for some trained PSBC models in the Examples folder.</p>
+</div>
 <div id="retrieving-some-statistics" class="section level2">
 <h2><span class="header-section-number">4.1</span> Retrieving some statistics</h2>
 <p>To get a flavor of what is in the statistics folder, we first need to retrieve some of this data:</p>
@@ -436,9 +438,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- plt.show() -->
 <!-- ``` -->
 <p>With data in the Statistics folder we can plot the graph of accuracies of the non-diffusive PSBC for different values of partition cardinality <span class="math inline">\(\mathrm{N_{ptt}}\)</span>.</p>
-<center>
-<img src="figures/output_72_0.png" title="fig:" style="width:90.0%" alt="A comparison of averave accuracy of the non-diffusive PSBC for different values of Partition cardinality; models compared either have subordinate phase (tagged as “Sub”) or not (non-subordinate phase, tagged as “Non-sub”)." />
-</center>
+<div class="figure">
+<img src="figures/output_72_0.png" style="width:90.0%" alt="" />
+<p class="caption">A comparison of average accuracy of the non-diffusive PSBC for different values of Partition cardinality; models compared either have subordinate phase (tagged as “Sub”) or not (non-subordinate phase, tagged as “Non-sub”).</p>
+</div>
 <p>If can also see the evolution of the maximum of trainable weights over epochs, for a Periodic PSBC with <span class="math inline">\(\mathrm{N_t} =1\)</span>.</p>
 <!-- ```python -->
 <!-- fig, ax = plt.subplots(nrows = 2, figsize = (15,10)) -->
@@ -472,9 +475,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- ax[1].grid(True) -->
 <!-- plt.show() -->
 <!-- ``` -->
-<center>
-<img src="figures/output_75_1.png" title="fig:" style="width:80.0%" alt="The behavior of \mathscr{P}_{\alpha}^{[\cdot]} and \mathscr{P}_{\beta}^{[\cdot]} over time, for a Periodic PSBC with \mathrm{N_t} =1." />
-</center>
+<div class="figure">
+<img src="figures/output_75_1.png" style="width:80.0%" alt="" />
+<p class="caption">The behavior of <span class="math inline">\(\mathscr{P}_{\alpha}^{[\cdot]}\)</span> and <span class="math inline">\(\mathscr{P}_{\beta}^{[\cdot]}\)</span> over time, for a Periodic PSBC with <span class="math inline">\(\mathrm{N_t} =1\)</span>.</p>
+</div>
 <p>With these data we can also plot confusion matrices.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="sec-mnist.html#cb4-1"></a>parent_folder <span class="op">=</span> <span class="st">&quot;Examples/&quot;</span></span>
 <span id="cb4-2"><a href="sec-mnist.html#cb4-2"></a>folder_now <span class="op">=</span> parent_folder <span class="op">+</span> <span class="st">&quot;W1S-Nt8/simulation1/&quot;</span></span>
@@ -503,21 +507,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- axs.set_xlabel("Predicted labels", fontsize = 22) -->
 <!-- plt.show() -->
 <!-- ``` -->
-<center>
-<img src="figures/output_80_0.png" title="fig:" style="width:50.0%" alt="Confusion matrix of a realization of the diffusive PSBC with Neumann BCs, weights-1-sharing, and \mathrm{N_t = 8}." />
-</center>
+<div class="figure">
+<img src="figures/output_80_0.png" style="width:50.0%" alt="" />
+<p class="caption">Confusion matrix of a realization of the diffusive PSBC with Neumann BCs, weights-1-sharing, and <span class="math inline">\(\mathrm{N_t = 8}\)</span>.</p>
+</div>
 <p>There are other things that we do as well: for instance, we can plot Table 4 in the <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/Supplement.pdf">Supplement</a>, which shows the average value of the maximum (in <span class="math inline">\(\ell^{\infty}\)</span>-norm) of trainable weights of non-diffusive PSBC models for different values of partition cardinality <span class="math inline">\(\mathrm{N_t}\)</span>.</p>
-<center>
-<img src="figures/max_non-dif.png" title="fig:" style="width:80.0%" alt="The maximum over epochs. You find the code for this plot in Notebook_examples.ipynb." />
-</center>
+<div class="figure">
+<img src="figures/max_non-dif.png" style="width:80.0%" alt="" />
+<p class="caption">The maximum over epochs. You find the code for this plot in <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/Notebook_PSBC_examples.ipynb">Notebook_examples.ipynb</a>.</p>
+</div>
 </div>
 <div id="a-homemade-example-hadwritten-0-and-1" class="section level2">
 <h2><span class="header-section-number">4.2</span> A “homemade” example: hadwritten 0 and 1</h2>
 <p>We now step foward to a higher dimensional feature space, using equations that are similar to those shown in Section <a href="sec-1d.html#sec:1d">3</a> of this tutorial. There is an interesting interplay between high-dimensionality of feature spaces and model compressibility, which we highlight here by applying the PSBC to the subset “0”-“1” of the MNIST database; we once more refer the reader to Sections 4 and 5 in the <a href="https://arxiv.org/abs/2009.02467">paper</a> for more details.</p>
 <p>The goal in this section is to illustrate a bit more of the PSBC’s use by predicting the label for some of the author’s own handwritten numbers. For that we shall use the trainable models available in <span class="citation">(Monteiro <a href="#ref-Bin_phase_data" role="doc-biblioref">2020</a><a href="#ref-Bin_phase_data" role="doc-biblioref">a</a>)</span>, in the tarball <strong>PSBC_Examples.tar.gz</strong>. Two of these digits are shown below.</p>
-<center>
-<img src="figures/output_85_0.png" title="fig:" alt="Two of the author’s own handwritten numbers; original photo, treated using Gimp." />
-</center>
+<div class="figure">
+<img src="figures/output_85_0.png" alt="" />
+<p class="caption">Two of the author’s own handwritten numbers; original photo, treated using Gimp.</p>
+</div>
 <p>In fact, we shall use 6 of the author’s handwritten digits - 3 zeros, 3 ones - for this notebook. If you read the first papers of LeCun et al. about the MNIST project, there is a description of the way pictures were taken (see for instance, Section III A in <span class="citation">(Lecun et al. <a href="#ref-Mnist" role="doc-biblioref">1998</a>)</span>, or the explanation in <a href="http://yann.lecun.com/exdb/mnist/">LeCun’s MNIST webpage</a>), so that they look the way they do in cell 36 of <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/Notebook_PSBC_examples.ipynb">Notebook_examples.ipynb</a>: the images had to be controlled for angle, centralization, etc; this is part of the statistical design, which I tried to follow here without too much concern (because this is just a tutorial) but, somehow, “as close as possible”.</p>
 <p>Pictures we cropped using <a href="https://www.gimp.org">GIMP</a>, a free software for image manipulation: you take a picture, crop it, go to image, set it into grayscale, adjust for light contrast and other things. And that’s it.</p>
 <p>Now, with them cropped, “MNIST-like” grayscale images in hands, you proceed as in the next cell, reshaping these pictures as a 28 x 28 matrix. We show what the two digits that you saw before will look like.</p>
@@ -566,9 +573,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!--     image has shape (28, 28) -->
 <!--     image has shape (28, 28) -->
 <!--     image has shape (28, 28) --></p>
-<center>
-<img src="figures/output_87_1.png" title="fig:" alt="The handwritten digits shown above, now as 28X28 pixels images." />
-</center>
+<div class="figure">
+<img src="figures/output_87_1.png" alt="" />
+<p class="caption">The handwritten digits shown above, now as 28X28 pixels images.</p>
+</div>
 <p>Recall that we need to flatten these matrices,</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="sec-mnist.html#cb6-1"></a>my_0_for_psbc <span class="op">=</span> my_0.flatten(order<span class="op">=</span><span class="st">&#39;C&#39;</span>)</span>
 <span id="cb6-2"><a href="sec-mnist.html#cb6-2"></a>...</span></code></pre></div>
@@ -673,9 +681,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!--     ax[i].imshow(np.reshape(combined_handwritten_for_psbc[:,i],(28,28)), cmap = 'binary') -->
 <!--     ax[i].axis("off") -->
 <!-- ``` -->
-<center>
-<img src="figures/output_105_0.png" title="fig:" alt="Some of the author’s handwritten examples for this tutorial." />
-</center>
+<div class="figure">
+<img src="figures/output_105_0.png" alt="" />
+<p class="caption">Some of the author’s handwritten examples for this tutorial.</p>
+</div>
 <p>Now let’s see how well the PSBC does in predicting them (note that, for the subset “0” and “1” of the MNIST database we already know that all these model perform quite well, separating these two classes with accuracy about 94%).</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="sec-mnist.html#cb12-1"></a><span class="cf">for</span> name <span class="kw">in</span> [<span class="st">&quot;W1S-NS&quot;</span>, <span class="st">&quot;W1S-S&quot;</span>, <span class="st">&quot;WNtS-NS&quot;</span>, <span class="st">&quot;WNtS-S&quot;</span>,<span class="op">\</span></span>
 <span id="cb12-2"><a href="sec-mnist.html#cb12-2"></a>            <span class="st">&quot;W1S-Nt2&quot;</span>, <span class="st">&quot;W1S-Nt4&quot;</span>, <span class="st">&quot;W1S-Nt8&quot;</span>,<span class="op">\</span></span>
@@ -776,7 +785,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Website.pdf", "Website.epub"],
+"download": ["Website.pdf"],
 "toc": {
 "collapse": "subsection"
 }
