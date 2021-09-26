@@ -5,7 +5,7 @@ Python code for the paper "Binary classification as a phase separation process",
 
 This is a data repository for the paper "Binary classification as a phase separation process", by Rafael Monteiro. (arxiv: https://arxiv.org/abs/2009.02467)
 
-*The database, split as necessary for model fitting, is available for download at https://zenodo.org/record/5525794*
+*The database, split as necessary for model fitting, is available for download at https://doi.org/10.5281/zenodo.5525794*
 
 A website with a short description of this project will be available soon. 
 
