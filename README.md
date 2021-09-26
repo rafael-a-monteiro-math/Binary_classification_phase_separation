@@ -21,7 +21,7 @@ The new files are: 
   
 Their content is explained in the file README_v2.pdf
 
-For usage, see the Git-hub. 
+For usage, see https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/PSBC_Examples.ipynb
 
 **NOTE) I will keep the content for the previous version available in my Github as well. It is still a "nice exercise" to do all that is done in this new version in numpy, as done there. (Or, I should say, they should be studied as a cautionary tale of what to avoid.)**
 
