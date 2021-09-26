@@ -1,0 +1,48 @@
+# Binary_classification_phase_separation
+Python code for the paper "Binary classification as a phase separation process", by Rafael Monteiro. Further information can be found in the tutorial website below.
+
+## For version 0.0.2 (from 2021) see below:
+
+This is a data repository for the paper "Binary classification as a phase separation process", by Rafael Monteiro.
+
+Website with description of this project: https://rafael-a-monteiro-math.github.io/Binary_classification_phase_separation/index.html
+Github: https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation
+This is a second version, which I wrote using tensorflow. It is much smaller (5 Gb when decompressed), a remarkable improvement when compared to the more than 100 Gb of the previous version).
+
+The new files are 
+
+  1. PSBC_BCs.tar.gz
+  2. PSBC_classifier_PCA.tar.gz
+  3. PSBC_dataset.tar.gz
+  4. PSBC_libs_grids_statistics.tar.gz
+  5. PSBC_notebooks.tar.gz
+  
+Their content is explained in the file README_v2.pdf
+
+For usage, see the Git-hub. 
+
+**NOTE) I will keep the content for the previous version available in my Github as well. It is still a "nice exercise" to do all that is done in this new version in numpy, as done there. (Or, I should say, they should be studied as a cautionary tale of what to avoid.)**
+
+
+
+## For version 0.0.1 (from 2020) see below:
+
+This is a data repository for the paper "Binary classification as a phase separation process", by Rafael Monteiro.
+
+Website with description of this project: https://rafael-a-monteiro-math.github.io/Binary_classification_phase_separation/index.html
+Github: https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation
+Therein  you will find
+
+  Examples
+  1. 1D toy model examples
+  2. Computational statistics
+  3. Several trained PSBC on MNIST dataset, with different parameter configurations
+  4. Extra simulations, investigating normalization properties, low dimensional models that fail due to "too much" model compression, and comparison among ANNs, KNNs, and the PSBC in 1D
+
+
+If you want to know how to read the data how to access computational statistics, raw data, and examples how to use the data stored in this data repository see the guide README.pdf on GitHub page  at Binary_Classification_Phase_Separation, where a script that downloads (and organizes) all this data is also available ("download_PSBC.sh).
+
+I did not include a copy of the train-test set (0-1dubset of the MNIST database) in every folder with simulations. But you can find a copy of the normalized dataset in the tar ball "PSBC_Examples.tar.gz"  as
+
+data_test_normalized_MNIST.csv and data_train_normalized_MNIST.csv.
+
