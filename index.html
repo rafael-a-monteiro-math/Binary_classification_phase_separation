@@ -73,12 +73,13 @@
 <li class="chapter" data-level="2" data-path="a-few-examples.html"><a href="a-few-examples.html"><i class="fa fa-check"></i><b>2</b> Nonlinear diffusion equations: a numerical example</a><ul>
 <li class="chapter" data-level="2.1" data-path="a-few-examples.html"><a href="a-few-examples.html#propagation-with-randomly-generated-coefficients"><i class="fa fa-check"></i><b>2.1</b> Propagation with randomly generated coefficients</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="sec-PSBC.html"><a href="sec-PSBC.html"><i class="fa fa-check"></i><b>3</b> A glimpse at the PSBC model</a><ul>
-<li class="chapter" data-level="3.1" data-path="sec-PSBC.html"><a href="sec-PSBC.html#multiclass-classification-using-the-psbc"><i class="fa fa-check"></i><b>3.1</b> Multiclass classification using the PSBC</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="sec-PSBC.html"><a href="sec-PSBC.html#how-committees-vote"><i class="fa fa-check"></i><b>3.1.1</b> How committees vote</a></li>
+<li class="chapter" data-level="3" data-path="sec-PSBC.html"><a href="sec-PSBC.html"><i class="fa fa-check"></i><b>3</b> A glimpse at the PSBC model</a></li>
+<li class="chapter" data-level="4" data-path="sec-mnist.html"><a href="sec-mnist.html"><i class="fa fa-check"></i><b>4</b> Applying the PSBC to pairs of digits of the MNIST database</a><ul>
+<li class="chapter" data-level="4.1" data-path="sec-mnist.html"><a href="sec-mnist.html#multiclass-classification-using-the-psbc"><i class="fa fa-check"></i><b>4.1</b> Multiclass classification using the PSBC</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="sec-mnist.html"><a href="sec-mnist.html#how-committees-vote"><i class="fa fa-check"></i><b>4.1.1</b> How committees vote</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><a href="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><i class="fa fa-check"></i><b>4</b> The Phase Separation Binary Classifier: where to read more about it</a></li>
+<li class="chapter" data-level="5" data-path="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><a href="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><i class="fa fa-check"></i><b>5</b> The Phase Separation Binary Classifier: where to read more about it</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 <li><a href="https://sites.google.com/view/rafaelmonteiro-math/home" target="blank">Rafael Monteiro's website</a></li>
@@ -110,7 +111,7 @@ Mathematics for Advanced Materials - Open Innovation Laboratory/Tohoku Universit
 </div>
 <div id="intro" class="section level1">
 <h1><span class="header-section-number"> 1</span> Introduction</h1>
-<p>This is a short companion tutorial to the github <span class="citation">(Monteiro <a href="#ref-Bin_phase_github" role="doc-biblioref">2020</a><a href="#ref-Bin_phase_github" role="doc-biblioref">b</a>)</span>. We give here a glimpse of the Phase Separation Binary Classifier (in short, PSBC), proposed in the article <strong>Binary Classification as a Phase Separation Process</strong>, by <a href="https://sites.google.com/view/rafaelmonteiro-math/home">Rafael Monteiro</a>; a <a href="https://arxiv.org/abs/2009.02467">preprint</a> is available on arXiv.</p>
+<p>This is a short companion tutorial to the github <span class="citation">(Monteiro <a href="#ref-Bin_phase_github" role="doc-biblioref">2020</a><a href="#ref-Bin_phase_github" role="doc-biblioref">a</a>)</span>. We give here a glimpse of the Phase Separation Binary Classifier (in short, PSBC), proposed in the article <strong>Binary Classification as a Phase Separation Process</strong>, by <a href="https://sites.google.com/view/rafaelmonteiro-math/home">Rafael Monteiro</a>; a <a href="https://arxiv.org/abs/2009.02467">preprint</a> is available on arXiv.</p>
 <p>This is a new type of Recurrent Neural Network whose architecture is inspired on how (binary) fluids phase separate.</p>
 <p>An implementation of the model can be found in the module <strong>binary_phase_separation.py</strong>. Part of this tutorial can also be found in <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/README_v2.pdf">README_v2.pdf</a>.</p>
 <p><strong>…but, before we start…</strong></p>
@@ -125,8 +126,8 @@ Mathematics for Advanced Materials - Open Innovation Laboratory/Tohoku Universit
 <li><a href="https://zenodo.org/record/5525794/files/PSBC_BCs.tar.gz?download=1">PSBC_BCs.tar.gz</a>;</li>
 <li><a href="https://zenodo.org/record/5525794/files/PSBC_classifier_PCA.tar.gz?download=1">PSBC_classifier_PCA.tar.gz</a>;</li>
 </ul>
-<p>All these files are available at <span class="citation">(Monteiro <a href="#ref-Bin_phase_data" role="doc-biblioref">2020</a><a href="#ref-Bin_phase_data" role="doc-biblioref">a</a>)</span>. All of them but <a href="https://zenodo.org/record/5525794/files/PSBC_dataset.tar.gz?download=1">PSBC_dataset.tar.gz</a> can also be downloaded from Github “<span class="citation">(Monteiro <a href="#ref-Bin_phase_github" role="doc-biblioref">2020</a><a href="#ref-Bin_phase_github" role="doc-biblioref">b</a>)</span>”.
-* The main module for this project are in the folder <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/tree/master/MOTHER_PSBC">MOTHER_PSBC</a>. The main module, <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/MOTHER_PSBC/"><strong>tfversion_binary_phase_separation.py</strong></a> does not depend on the folder-tree structure described in the README_v2 file on “<span class="citation">(Monteiro <a href="#ref-Bin_phase_github" role="doc-biblioref">2020</a><a href="#ref-Bin_phase_github" role="doc-biblioref">b</a>)</span>”.
+<p>All these files are available at <span class="citation">(Monteiro <a href="#ref-Bin_phase_data" role="doc-biblioref">2020</a><a href="#ref-Bin_phase_data" role="doc-biblioref">b</a>)</span>. All of them but <a href="https://zenodo.org/record/5525794/files/PSBC_dataset.tar.gz?download=1">PSBC_dataset.tar.gz</a> can also be downloaded from Github “<span class="citation">(Monteiro <a href="#ref-Bin_phase_github" role="doc-biblioref">2020</a><a href="#ref-Bin_phase_github" role="doc-biblioref">a</a>)</span>”.
+* The main module for this project are in the folder <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/tree/master/MOTHER_PSBC">MOTHER_PSBC</a>. The main module, <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/MOTHER_PSBC/"><strong>tfversion_binary_phase_separation.py</strong></a> does not depend on the folder-tree structure described in the README_v2 file on “<span class="citation">(Monteiro <a href="#ref-Bin_phase_github" role="doc-biblioref">2020</a><a href="#ref-Bin_phase_github" role="doc-biblioref">a</a>)</span>”.
 * If you want to reproduce this notebook you should download the file - <a href="https://zenodo.org/record/5525794/files/PSBC_notebooks.tar.gz?download=1">PSBC_notebooks.tar.gz</a>.
 * It is always recommended to download big using <a href="https://www.gnu.org/software/wget/">wget</a>), but you can use your browser.</p>
 <ul>
@@ -142,11 +143,11 @@ Mathematics for Advanced Materials - Open Innovation Laboratory/Tohoku Universit
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-Bin_phase_data">
-<p>Monteiro, Rafael. 2020a. “Data Repository for the Paper ‘Binary Classification as a Phase Separation Process’.” <em>Zenodo Repository</em>. <a href="https://dx.doi.org/10.5281/zenodo.4005131">https://dx.doi.org/10.5281/zenodo.4005131</a>; Zenodo. <a href="https://doi.org/10.5281/zenodo.4005131">https://doi.org/10.5281/zenodo.4005131</a>.</p>
-</div>
 <div id="ref-Bin_phase_github">
-<p>Monteiro, Rafael. 2020b. “Source Code for the Paper ‘Binary Classification as a Phase Separation Process’.” <em>GitHub Repository</em>. <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation">https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation</a>; GitHub.</p>
+<p>Monteiro, Rafael. 2020a. “Source Code for the Paper ‘Binary Classification as a Phase Separation Process’.” <em>GitHub Repository</em>. <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation">https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation</a>; GitHub.</p>
+</div>
+<div id="ref-Bin_phase_data">
+<p>Monteiro, Rafael. 2020b. “Binary Classification as a Phase Separation Process (data repository).” Zenodo. <a href="https://doi.org/10.5281/zenodo.5525794">https://doi.org/10.5281/zenodo.5525794</a>.</p>
 </div>
 </div>
             </section>
