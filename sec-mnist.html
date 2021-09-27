@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 4 Applying the PSBC to pairs of digits of the MNIST database | Binary classification as a phase separation process - a short tutorial</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 4 Applying the PSBC to pairs of digits of the MNIST database | Binary classification as a phase separation process - a short tutorial" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 4 Applying the PSBC to pairs of digits of the MNIST database | Binary classification as a phase separation process - a short tutorial" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2021-09-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="sec-PSBC.html"/>
+<link rel="next" href="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Binary classification as a phase separation process</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="a-few-examples.html"><a href="a-few-examples.html"><i class="fa fa-check"></i><b>2</b> Nonlinear diffusion equations: a numerical example</a><ul>
+<li class="chapter" data-level="2.1" data-path="a-few-examples.html"><a href="a-few-examples.html#propagation-with-randomly-generated-coefficients"><i class="fa fa-check"></i><b>2.1</b> Propagation with randomly generated coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="sec-PSBC.html"><a href="sec-PSBC.html"><i class="fa fa-check"></i><b>3</b> A glimpse at the PSBC model</a></li>
+<li class="chapter" data-level="4" data-path="sec-mnist.html"><a href="sec-mnist.html"><i class="fa fa-check"></i><b>4</b> Applying the PSBC to pairs of digits of the MNIST database</a><ul>
+<li class="chapter" data-level="4.1" data-path="sec-mnist.html"><a href="sec-mnist.html#multiclass-classification-using-the-psbc"><i class="fa fa-check"></i><b>4.1</b> Multiclass classification using the PSBC</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="sec-mnist.html"><a href="sec-mnist.html#how-committees-vote"><i class="fa fa-check"></i><b>4.1.1</b> How committees vote</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><a href="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><i class="fa fa-check"></i><b>5</b> The Phase Separation Binary Classifier: where to read more about it</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://sites.google.com/view/rafaelmonteiro-math/home" target="blank">Rafael Monteiro's website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Binary classification as a phase separation process - a short tutorial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sec:mnist" class="section level1">
+<h1><span class="header-section-number"> 4</span> Applying the PSBC to pairs of digits of the MNIST database</h1>
+<p>The MNIST database is a well known database of handwritten digits used in the classical paper <span class="citation">(Lecun et al. <a href="#ref-Mnist" role="doc-biblioref">1998</a>)</span>. It consists of 70,000 images, each represented as a <span class="math inline">\(28\times 28\)</span> matrix of pixels.</p>
+<div class="figure">
+<img src="figures/sample_MNIST_multiclass.png" alt="" />
+<p class="caption">A sample of pairs in the MNIST database.</p>
+</div>
+<p>The PSBC adjust its weights - associated to the coefficients of Equation <a href="sec-PSBC.html#eq:5">(3.2)</a> - in order to achieve high accuracy in binary classification. The evolution of these weights can be seen in the next animation, captured while several PSBC with different architectures were trained. It is remarkable how fast the model achieves a high level of accuracy so quickly.</p>
+<div class="figure">
+<img src="figures/Example_layers_snapshots_acc_all-min.gif" alt="" />
+<p class="caption">The evolution of PSBC’s weights during an epoch, classifying digits “0” and “1” of the MNIST database.</p>
+</div>
+<div id="multiclass-classification-using-the-psbc" class="section level2">
+<h2><span class="header-section-number">4.1</span> Multiclass classification using the PSBC</h2>
+<p>For illustrative purposes, we constructed a multiclass classifier using several PSBCs. Roughly speaking, the idea is to evaluate all the 45 classifier associated to pairs of digits in the MNIST database, and then see which digit won the most of the “matches”. In that way, we have committees that vote in order to assign indivuals to labels.</p>
+<div class="figure">
+<img src="figures/tournament5_confusion_matrices.png" alt="" />
+<p class="caption">The multiclass classifier associated with the PSBC. No optimality was intended; as pointed out in the paper, Boosting Methods could be useful in order to improve its accuracy (at 77.25%)</p>
+</div>
+<p>Let me briefly explain how this happens; for further details, see the jupyter-notebook <a href="https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/PSBC_ensemble_learning_notebook.ipynb">PSBC_ensemble_learning_notebook.ipynb</a>.</p>
+<div id="how-committees-vote" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> How committees vote</h3>
+<p>Constructing multiclass classifiers using binary classifiers can be done in many ways. The method we used is called <em>one-versus-one</em>. As said earlier, labels are assigned based on voting. For each individual we assign a matrix of size <span class="math inline">\(10 \times 10\)</span>, where each entry (i,j) indicates the result of the classification of that digits through a PSBC binary classifier optimized on she subset of digits <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> of the MNIST database. Whenever <span class="math inline">\(i\)</span> wins, we record a vote at <span class="math inline">\((i,j)\)</span>; likewise, whenever <span class="math inline">\(j\)</span> wins, a vote at <span class="math inline">\((j,i)\)</span> is recorded.</p>
+<p>Among the voting systems used, we used hard voting, that chooses the label assigned randomly among those with highest number of votes, or by successive tournaments, aimed to eliminate lowest score achievers. The results, most ofg the time, agree, as shown in the next example.</p>
+<div class="figure">
+<img src="figures/hard_vote_1.png" alt="" />
+<p class="caption">Hard voting versus tournament. Results agree in most cases.</p>
+</div>
+<p>However, there are a few cases where both voting systems give different results. We note that in our tests hard voting performed better, by a slight margin; both voting systems yield about 77% accuracy.
+<img src="figures/hard_vote_2.png" alt="Hard voting versus tournament. An example of disagreement between both voting systems." /></p>
+
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Mnist">
+<p>Lecun, Yann, Léon Bottou, Yoshua Bengio, and Patrick Haffner. 1998. “Gradient-Based Learning Applied to Document Recognition.” In <em>Proceedings of the Ieee</em>, 2278–2324.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sec-PSBC.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-phase-separation-binary-classifier-where-to-read-more-about-it.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Website.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

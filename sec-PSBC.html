@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 3 A glimpse at the PSBC model | Binary classification as a phase separation process - a short tutorial</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 3 A glimpse at the PSBC model | Binary classification as a phase separation process - a short tutorial" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 3 A glimpse at the PSBC model | Binary classification as a phase separation process - a short tutorial" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+
+
+<meta name="date" content="2021-09-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="a-few-examples.html"/>
+<link rel="next" href="sec-mnist.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Binary classification as a phase separation process</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="a-few-examples.html"><a href="a-few-examples.html"><i class="fa fa-check"></i><b>2</b> Nonlinear diffusion equations: a numerical example</a><ul>
+<li class="chapter" data-level="2.1" data-path="a-few-examples.html"><a href="a-few-examples.html#propagation-with-randomly-generated-coefficients"><i class="fa fa-check"></i><b>2.1</b> Propagation with randomly generated coefficients</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="sec-PSBC.html"><a href="sec-PSBC.html"><i class="fa fa-check"></i><b>3</b> A glimpse at the PSBC model</a></li>
+<li class="chapter" data-level="4" data-path="sec-mnist.html"><a href="sec-mnist.html"><i class="fa fa-check"></i><b>4</b> Applying the PSBC to pairs of digits of the MNIST database</a><ul>
+<li class="chapter" data-level="4.1" data-path="sec-mnist.html"><a href="sec-mnist.html#multiclass-classification-using-the-psbc"><i class="fa fa-check"></i><b>4.1</b> Multiclass classification using the PSBC</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="sec-mnist.html"><a href="sec-mnist.html#how-committees-vote"><i class="fa fa-check"></i><b>4.1.1</b> How committees vote</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><a href="the-phase-separation-binary-classifier-where-to-read-more-about-it.html"><i class="fa fa-check"></i><b>5</b> The Phase Separation Binary Classifier: where to read more about it</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://sites.google.com/view/rafaelmonteiro-math/home" target="blank">Rafael Monteiro's website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Binary classification as a phase separation process - a short tutorial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sec:PSBC" class="section level1">
+<h1><span class="header-section-number"> 3</span> A glimpse at the PSBC model</h1>
+<p>The monotonicity property we briefly mentioned in the last section means trouble. It is a manifestation of a topological obstruction that a 1D model cannot overcome. For this reason, we have to use a somewhat “bigger”" model, of the form</p>
+<p><span class="math display" id="eq:4">\[\begin{equation} 
+\begin{split}
+U^{[n+1]} = U^{[n]} + \Delta_t^{u}\,f(U^{[n]},\alpha^{[n]}),\\
+P^{[n+1]} = P^{[n]} + \Delta_t^{p}\,f(P^{[n]},\beta^{[n]}),
+\end{split}\tag{3.1}
+\end{equation}\]</span></p>
+<p>where the variable <span class="math inline">\(P^{[\cdot]}\)</span> will be responsible for fixing the issue.
+Here the nonlinearity is <span class="math inline">\(f(u,w):= u(1 - u)(u - w)\)</span> and is the same for both equations, although both variables <span class="math inline">\(\alpha^{[\cdot]}\)</span> and <span class="math inline">\(\beta^{[\cdot]}\)</span> are adjusted separately through optimization of a cost function. Many details are given in the paper, to which we refer the reader to.</p>
+<p>In essence, this is the heart of the Phase Separation Binary Classifier (PSBC), which is nothing but a new type of Recursivce Neural Network.</p>
+<p>What should be added at this point is that the model in fact is a bit bigger than what is seen in <a href="sec-PSBC.html#eq:4">(3.1)</a>, reading as</p>
+<p><span class="math display" id="eq:5">\[\begin{equation} 
+\begin{split}
+ \frac{U_{m}^{[n + 1]} - U_{m}^{[n]}}{\Delta_t^u} &amp;:= \frac{\varepsilon^2}{\Delta_x^2}\left(
+U_{m+ 1}^{[n + 1]} - 2 U_{m}^{[n + 1]} + U_{m- 1}^{[n + 1]}
+\right) + f(U_m^{[n]};\alpha_m^{[n]} ), \quad \text{for} \quad 1\leq m \leq \mathrm{N_u},\\
+\frac{ P_j^{[n+1]} - P_j^{[n]}}{\Delta_t^p} &amp; := f(P_j^{[n]}; \beta_j^{[n]}), \quad \text{for } \quad 1\leq j \leq \mathrm{N_p},
+\end{split}\tag{3.2}
+\end{equation}\]</span></p>
+<p>There are many hyperparameters, which we will refrain from explaining here. In summary, they are not only tied to the dynamics of these equations, but also used for model compression purposes; Section 2 of the <a href="https://arxiv.org/abs/2009.02467">paper</a> has a thorough description of their role.</p>
+<div class="figure">
+<img src="figures/Example_layers.png" alt="" />
+<p class="caption">Heatmaps of trainable weights for some trained PSBC models under different architectures. The first row of heatmaps concerns weights associated to <span class="math inline">\(\alpha^{[\cdot]}s\)</span>, whereas lower row concerns weights associated to <span class="math inline">\(\beta^{[\cdot]}\)</span>.</p>
+</div>
+<p>In the next section we will test the PSBC on pairs of digits in the MNIST database.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="a-few-examples.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sec-mnist.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Website.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
