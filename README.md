@@ -16,7 +16,7 @@ The new files are: 
   2. PSBC_classifier_PCA.tar.gz
   3. PSBC_dataset.tar.gz
   4. PSBC_libs_grids_statistics.tar.gz
-  5. PSBC_notebooks.tar.gz
+  5. PSBC_notebooks.tar.gz
   
 Their content is explained in the file [README_v2.pdf](https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/README_v2.pdf)
 
