@@ -22,6 +22,9 @@ Their content is explained in the file [README_v2.pdf](https://github.com/rafael
 
 For usage, see [PSBC_Examples.ipynb](https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/PSBC_Examples.ipynb)
 
+
+![Evolution of layers during an epoch while training the model at digits "0" and "1" of the MNIST database.](https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/figures/Example_layers_snapshots_acc_all-min.gif)
+
 **NOTE) I will keep the content for the previous version available in my Github as well. It is still a "nice exercise" to do all that is done in this new version in numpy, as done there. (Or, I should say, they should be studied as a cautionary tale of what to avoid.)**
 
 
