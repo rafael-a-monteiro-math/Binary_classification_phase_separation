@@ -3,13 +3,12 @@ Python code for the paper "Binary classification as a phase separation process",
 
 ## For version 0.0.2 (from 2021) see below:
 
-This is a data repository for the paper "Binary classification as a phase separation process", by Rafael Monteiro. (arxiv: https://arxiv.org/abs/2009.02467)
+This is a data repository for the paper "[Binary classification as a phase separation process](https://arxiv.org/abs/2009.02467)", by [Rafael Monteiro](https://sites.google.com/view/rafaelmonteiro-math/home). )
 
-*The database, split as necessary for model fitting, is available for download at https://doi.org/10.5281/zenodo.5525794*
+*The database, split as necessary for model fitting, is available for download at* [Zenodo](https://doi.org/10.5281/zenodo.5525794) 
 
-A website with a short description of this project will be available soon. 
 
-This is a second version, which I wrote using tensorflow. Several other changes have been added as well. Overall, simulations/tests fit into a much smaller file (5 Gb when decompressed), a remarkable improvement when compared to the more than 100 Gb of the previous version.
+This is a second version, which I wrote using tensorflow/keras. Several other changes have been added as well. Overall, simulations/tests fit into a much smaller file (5 Gb when decompressed), a remarkable improvement when compared to the more than 100 Gb of the previous version.
 
 The new files are: 
 
@@ -19,9 +18,9 @@ The new files are: 
   4. PSBC_libs_grids_statistics.tar.gz
   5. PSBC_notebooks.tar.gz
   
-Their content is explained in the file README_v2.pdf
+Their content is explained in the file [README_v2.pdf](https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/README_v2.pdf)
 
-For usage, see https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/PSBC_Examples.ipynb
+For usage, see [PSBC_Examples.ipynb](https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation/blob/master/PSBC_Examples.ipynb)
 
 **NOTE) I will keep the content for the previous version available in my Github as well. It is still a "nice exercise" to do all that is done in this new version in numpy, as done there. (Or, I should say, they should be studied as a cautionary tale of what to avoid.)**
 
