@@ -1,5 +1,17 @@
 # Binary_classification_phase_separation
-Python code for the paper "Binary classification as a phase separation process", by Rafael Monteiro. Further information can be found in the tutorial website below.
+Python code for the paper "Binary classification as a phase separation process", by Rafael Monteiro. It can be cited as 
+
+```
+@misc{monteiro2021binary,
+      title={Binary Classification as a Phase Separation Process}, 
+      author={Rafael Monteiro},
+      year={2021},
+      eprint={2009.02467},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML}}
+```
+
+Further information can be found in the tutorial website below.
 
 ## For version 0.0.2 (from 2021) see below:
 
