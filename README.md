@@ -39,7 +39,7 @@ For usage, see [PSBC_Examples.ipynb](https://github.com/rafael-a-monteiro-math/B
 
 *Above, you see the evolution of layers during an epoch while training the model on digits "0" and "1" of the MNIST database.*
 
-- **UPDATE: [a Google Colab folder is also available here](https://drive.google.com/drive/folders/18l_92HuHDWJDkZnvXRuyGedcyC_3YZ2M?usp=sharing). You can also find all the data and libraries there, unpacked.**
+- **UPDATE: [a Google Colab folder is also available](https://drive.google.com/drive/folders/18l_92HuHDWJDkZnvXRuyGedcyC_3YZ2M?usp=sharing). You can also find all the data and libraries there, unpacked.**
 
 - **I will keep the content for the previous version available in my Github as well. It is still a "nice exercise" to do all that is done in this new version in numpy, as done there. (Or, I should say, they should be studied as a cautionary tale of what to avoid.)**
 
