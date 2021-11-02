@@ -19,6 +19,11 @@ This is a data repository for the paper "[Binary classification as a phase sepa
 
 *The database, split as necessary for model fitting, is available for download at* [Zenodo](https://doi.org/10.5281/zenodo.5525794). 
 
+You can download and unzip this repository from GitHub, either interactively, or by entering
+```
+git clone https://github.com/rafael-a-monteiro-math/Binary_classification_phase_separation.git
+```
+
 
 This is a second version, which I wrote using tensorflow/keras. Several other changes have been added as well. Overall, simulations/tests fit into a much smaller file (5 Gb when decompressed), a remarkable improvement when compared to the more than 100 Gb of the previous version.
 
